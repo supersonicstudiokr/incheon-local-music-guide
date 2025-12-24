@@ -1,95 +1,200 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>인터뷰 전문</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Incheon Local Music Guide · Interviews</title>
 
-  <!-- Pretendard -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 
   <style>
-    body {
-      margin: 0;
-      font-family: "Pretendard", system-ui, sans-serif;
-      background-color: #1e3a8a;
-      color: #ffffff;
+    :root{
+      --bg:#0b1220;
+      --text:#eaf0ff;
+      --muted:#a9b7d6;
+      --line:rgba(255,255,255,.10);
+      --radius:18px;
     }
-
-    .wrap {
-      max-width: 760px;
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:"Pretendard", system-ui, -apple-system, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    .wrap{
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 32px 18px;
+      padding: 28px 18px 60px;
     }
 
-    h1 {
-      font-size: 28px;
-      margin-bottom: 12px;
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding: 14px 0 26px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 28px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 200px;
+    }
+    .brand img{
+      width:36px; height:36px;
+      border-radius: 10px;
+      object-fit: cover;
+      background:#111;
+    }
+    .brand b{ letter-spacing: .2px; }
+    .nav{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav a{
+      color:var(--muted);
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius: 10px;
+    }
+    .nav a:hover{
+      color:var(--text);
+      background: rgba(255,255,255,.06);
     }
 
-    .sub {
-      color: #bfdbfe;
+    h1{
+      margin: 0 0 10px;
+      font-size: 44px;
+      line-height: 1.05;
+      letter-spacing: -0.6px;
+    }
+    .desc{
+      margin: 0 0 22px;
+      color: var(--muted);
+      max-width: 68ch;
       line-height: 1.6;
-      margin-bottom: 36px;
     }
 
-    .interview-block {
-      margin-bottom: 40px;
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+      h1{ font-size: 36px; }
+    }
+    @media (max-width: 560px){
+      .grid{ grid-template-columns: 1fr; }
+      h1{ font-size: 30px; }
     }
 
-    .interview-block img {
-      width: 100%;
-      border-radius: 16px;
-      margin-bottom: 14px;
-      display: block;
+    .card{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow:hidden;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.18);
     }
 
-    .card {
-      display: block;
-      background-color: #ffffff;
-      color: #1e3a8a;
-      border-radius: 16px;
-      padding: 16px 18px;
-      font-weight: 600;
-      text-decoration: none;
+    .thumb{
+      width:100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display:block;
+      background:#111;
     }
 
-    .card:hover {
-      background-color: #e5e7eb;
+    .meta{
+      padding: 14px 14px 16px;
     }
-
-    footer {
-      margin-top: 48px;
+    .title{
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      margin: 0 0 6px;
+    }
+    .sub{
+      margin:0;
+      color: var(--muted);
       font-size: 14px;
-      color: #bfdbfe;
+      line-height: 1.4;
+    }
+
+    footer{
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
     }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
-    <h1>인터뷰 전문</h1>
-    <p class="sub">
-      Zine에는 하이라이트만 수록했습니다.<br>
-      인터뷰 전문은 아래 링크에서 읽을 수 있어요.
+  <div class="wrap">
+
+    <header class="topbar">
+      <div class="brand">
+        <img src="logo.png" alt="SUPERSONIC STUDIO logo">
+        <div>
+          <b>Incheon Local Music Guide</b><br>
+          <span style="color:var(--muted); font-size:13px;">Interview archive</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Portfolio</a>
+        <a href="map.html">Map</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <h1>Interviews.</h1>
+    <p class="desc">
+      Zine에는 하이라이트만 수록했습니다. 아래 썸네일을 눌러 인터뷰 전문을 읽어보세요.
     </p>
 
-    <div class="interview-block">
-      <img src="kim-haksun.jpg" alt="김학선">
-      <a class="card" href="./interview-1.html">Interview 01 · 김학선</a>
-    </div>
+    <section class="grid">
+      <a class="card" href="interview-1.html">
+        <img class="thumb" src="thumb-01.jpg" alt="Interview 01 · 김학선">
+        <div class="meta">
+          <p class="title">Interview 01 · 김학선</p>
+          <p class="sub">인천 로컬 음악 씬, 기록, 장소에 대한 이야기</p>
+        </div>
+      </a>
 
-    <div class="interview-block">
-      <img src="sanmanhan-sisun.jpg" alt="산만한시선">
-      <a class="card" href="./interview-2.html">Interview 02 · 산만한시선</a>
-    </div>
+      <a class="card" href="interview-2.html">
+        <img class="thumb" src="thumb-02.jpg" alt="Interview 02 · 산만한시선">
+        <div class="meta">
+          <p class="title">Interview 02 · 산만한시선</p>
+          <p class="sub">앨범 제작 이후의 변화와 DIY 루틴</p>
+        </div>
+      </a>
 
-    <div class="interview-block">
-      <img src="jung-jihye.jpg" alt="정지혜 대리">
-      <a class="card" href="./interview-3.html">Interview 03 · 부평구문화재단 정지혜 대리</a>
-    </div>
+      <a class="card" href="interview-3.html">
+        <img class="thumb" src="thumb-03.jpg" alt="Interview 03 · 정지혜 대리">
+        <div class="meta">
+          <p class="title">Interview 03 · 정지혜 대리</p>
+          <p class="sub">부평구문화재단, 문화도시, 지원의 방식</p>
+        </div>
+      </a>
+    </section>
 
     <footer>© SUPERSONIC STUDIO</footer>
-  </main>
+  </div>
 </body>
 </html>
