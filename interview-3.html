@@ -8,8 +8,8 @@
     body {
       font-family: system-ui, sans-serif;
       margin: 0;
-      background-color: #ffffff;
-      color: #ffffff;
+      background-color: #ffffff;  /* ✅ 흰 배경 */
+      color: #111111;             /* ✅ 검정 글씨로 변경 (중요) */
     }
     .wrap {
       max-width: 760px;
@@ -17,16 +17,19 @@
       padding: 32px 18px;
     }
     a {
-      color: #dbeafe;
+      color: #111111;             /* ✅ 링크도 블랙 */
       text-decoration: none;
     }
+    a:hover {
+      text-decoration: underline;
+    }
     .sub {
-      color: #bfdbfe;
+      color: rgba(0,0,0,0.68);    /* ✅ 회색 서브텍스트 */
       line-height: 1.6;
     }
     hr {
       border: none;
-      border-top: 1px solid rgba(255,255,255,0.3);
+      border-top: 1px solid rgba(0,0,0,0.12); /* ✅ 연한 회색 라인 */
       margin: 24px 0;
     }
   </style>
