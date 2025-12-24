@@ -9,10 +9,11 @@
 
   <style>
     :root{
-      --bg:#0b1220;
-      --text:#eaf0ff;
-      --muted:#a9b7d6;
-      --line:rgba(255,255,255,.10);
+      /* ✅ 화이트(다른 페이지와 동일하게) */
+      --bg:#ffffff;
+      --text:#111111;
+      --muted:rgba(0,0,0,.68);
+      --line:rgba(0,0,0,.12);
       --radius:18px;
     }
     *{ box-sizing:border-box; }
@@ -47,7 +48,7 @@
       width:36px; height:36px;
       border-radius: 10px;
       object-fit: cover;
-      background:#111;
+      background: transparent;
     }
     .brand b{ letter-spacing: .2px; }
     .nav{
@@ -64,7 +65,7 @@
     }
     .nav a:hover{
       color:var(--text);
-      background: rgba(255,255,255,.06);
+      background: rgba(0,0,0,.04);
     }
 
     h1{
@@ -99,7 +100,7 @@
       display:block;
       text-decoration:none;
       color:inherit;
-      background: rgba(255,255,255,.04);
+      background: rgba(0,0,0,.02);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       overflow:hidden;
@@ -107,8 +108,8 @@
     }
     .card:hover{
       transform: translateY(-2px);
-      background: rgba(255,255,255,.06);
-      border-color: rgba(255,255,255,.18);
+      background: rgba(0,0,0,.04);
+      border-color: rgba(0,0,0,.18);
     }
 
     .thumb{
@@ -116,7 +117,7 @@
       aspect-ratio: 4 / 3;
       object-fit: cover;
       display:block;
-      background:#111;
+      background:#f2f2f2;
     }
 
     .meta{
