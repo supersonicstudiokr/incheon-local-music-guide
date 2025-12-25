@@ -51,6 +51,7 @@
       background: transparent;
     }
     .brand b{ letter-spacing: .2px; }
+
     .nav{
       display:flex;
       gap:14px;
@@ -79,6 +80,28 @@
       color: var(--muted);
       max-width: 68ch;
       line-height: 1.6;
+    }
+
+    /* ✅ map 버튼 */
+    .cta-row{
+      margin: 14px 0 6px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .cta{
+      display:inline-block;
+      text-decoration:none;
+      font-weight:700;
+      border-radius: 14px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,.02);
+      color: var(--text);
+    }
+    .cta:hover{
+      background: rgba(0,0,0,.04);
+      border-color: rgba(0,0,0,.18);
     }
 
     .grid{
@@ -150,6 +173,7 @@
 
     <header class="topbar">
       <div class="brand">
+        <!-- ⚠️ 파일명이 logo.png.png 로 되어 있음: 실제 파일명과 정확히 일치해야 이미지가 안 깨져요 -->
         <img src="logo.png.png" alt="SUPERSONIC STUDIO logo">
         <div>
           <b>Incheon Local Music Guide</b><br>
@@ -158,6 +182,8 @@
       </div>
 
       <nav class="nav">
+        <!-- ✅ Map 메뉴 추가 -->
+        <a href="map.html">Go to the map</a>
         <a href="about.html">About</a>
       </nav>
     </header>
@@ -167,8 +193,14 @@
       인천 로컬 뮤직 가이드에 담긴 3명의 인터뷰 전문을 이곳에서 읽어보세요.
     </p>
 
+    <!-- ✅ 본문에도 map 버튼(큰 버튼) 추가 -->
+    <div class="cta-row">
+      <a class="cta" href="map.html">Go to the map →</a>
+    </div>
+
     <section class="grid">
       <a class="card" href="interview-1.html">
+        <!-- ⚠️ thumb-01.jpg.JPG : 대소문자/확장자까지 실제 파일명과 정확히 같아야 함 -->
         <img class="thumb" src="thumb-01.jpg.JPG" alt="Interview 01 · 김학선">
         <div class="meta">
           <p class="title">Interview 01 · 김학선</p>
