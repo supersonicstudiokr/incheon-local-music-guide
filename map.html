@@ -3,23 +3,166 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Map · Incheon Local Music Guide</title>
+  <title>Go to the map · Incheon Local Music Guide</title>
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="site.css">
+
   <style>
-    body{margin:0;font-family:"Pretendard",system-ui,sans-serif;background:#0b1220;color:#eaf0ff}
-    .wrap{max-width:1080px;margin:0 auto;padding:28px 18px 60px}
-    a{color:#a9b7d6;text-decoration:none}
-    a:hover{color:#eaf0ff}
-    .box{margin-top:24px;padding:18px;border:1px solid rgba(255,255,255,.10);border-radius:18px;background:rgba(255,255,255,.04)}
+    .hero-card{
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 10px;
+    }
+    .hero-title{
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 8px;
+      letter-spacing: -0.2px;
+    }
+    .hero-sub{
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .btn{
+      display:inline-block;
+      background: #ffffff;
+      color: #0b1220;
+      padding: 12px 14px;
+      border-radius: 14px;
+      text-decoration:none;
+      font-weight: 700;
+    }
+    .btn:hover{ opacity:.92; }
+
+    /* (옵션) 임베드 영역: 네이버가 막으면 안 보일 수 있음 */
+    .embed{
+      margin-top: 14px;
+      width: 100%;
+      height: 520px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+      background:#111;
+    }
+    .embed iframe{
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    .section-title{
+      margin: 26px 0 10px;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+    }
+    .section-desc{
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .grid18{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width: 900px){ .grid18{ grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px){ .grid18{ grid-template-columns: 1fr; } }
+
+    .pick{
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .pick b{
+      display:block;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+    .pick p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
-    <p><a href="index.html">← Back</a></p>
-    <h1>Map</h1>
-    <div class="box">
-      지도 페이지는 준비 중이에요. (곧 업데이트)
-    </div>
+    <header class="topbar">
+      <div class="brand">
+        <img src="logo.png" alt="SUPERSONIC STUDIO logo">
+        <div>
+          <b>Incheon Local Music Guide</b><br>
+          <span style="color:var(--muted); font-size:13px;">Map & editor’s picks</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="map.html">Go to the map</a>
+      </nav>
+    </header>
+
+    <h1>Go to the map</h1>
+    <p class="desc">네이버 지도 저장 리스트와, SUPERSONIC STUDIO의 Editor’s Picks 18곳을 모았습니다.</p>
+
+    <!-- ✅ 1) 네이버 지도 저장 리스트 큰 영역 -->
+    <section class="hero-card">
+      <p class="hero-title">Naver Map · 저장 리스트</p>
+      <p class="hero-sub">
+        전체 인천 음악 스팟 저장 리스트는 아래 버튼을 눌러 확인하세요.
+      </p>
+
+      <a class="btn" href="https://naver.me/GGC6wuYB" target="_blank" rel="noopener">
+        네이버 지도에서 열기 ↗
+      </a>
+
+      <!-- (옵션) 임베드 시도: 네이버가 막으면 안 보일 수 있어요 -->
+      <!-- 안 뜨면 아래 embed 블록(iframe 포함)만 삭제해도 됩니다. -->
+      <div class="embed" aria-label="naver-map-embed">
+        <iframe src="https://naver.me/GGC6wuYB" title="Naver Map List"></iframe>
+      </div>
+    </section>
+
+    <!-- ✅ 2) Editor’s Picks 18 -->
+    <h2 class="section-title">Editor’s Picks (18)</h2>
+    <p class="section-desc">
+      아래는 진에서 특별히 하이라이트할 18곳과 그 이유입니다. (텍스트는 여기서 계속 수정 가능)
+    </p>
+
+    <section class="grid18">
+      <div class="pick"><b>01 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>02 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>03 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>04 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>05 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>06 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>07 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>08 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>09 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>10 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>11 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>12 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>13 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>14 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>15 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>16 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>17 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+      <div class="pick"><b>18 · Spot name</b><p>왜 추천하는지 한 줄~두 줄로 적기</p></div>
+    </section>
+
+    <footer>© SUPERSONIC STUDIO</footer>
   </div>
 </body>
 </html>
+
