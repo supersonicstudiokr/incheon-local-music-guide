@@ -4,23 +4,120 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About · Incheon Local Music Guide</title>
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+
   <style>
-    body{margin:0;font-family:"Pretendard",system-ui,sans-serif;background:#0b1220;color:#eaf0ff}
-    .wrap{max-width:1080px;margin:0 auto;padding:28px 18px 60px}
-    a{color:#a9b7d6;text-decoration:none}
-    a:hover{color:#eaf0ff}
-    .box{margin-top:24px;padding:18px;border:1px solid rgba(255,255,255,.10);border-radius:18px;background:rgba(255,255,255,.04);line-height:1.7}
+    :root{
+      --bg:#ffffff;
+      --text:#111111;
+      --muted:rgba(0,0,0,.68);
+      --line:rgba(0,0,0,.12);
+      --radius:18px;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:"Pretendard", system-ui, -apple-system, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    .wrap{
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 28px 18px 60px;
+    }
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding: 14px 0 26px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 28px;
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 220px;
+    }
+    .brand img{
+      width:36px; height:36px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .nav a{
+      color:var(--muted);
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius: 10px;
+    }
+    .nav a:hover{
+      color:var(--text);
+      background: rgba(0,0,0,.04);
+    }
+    h1{
+      margin: 0 0 10px;
+      font-size: 44px;
+      line-height: 1.05;
+      letter-spacing: -0.6px;
+    }
+    @media (max-width: 560px){
+      h1{ font-size: 30px; }
+    }
+    p{
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 0 0 14px;
+    }
+    .box{
+      margin-top: 18px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(0,0,0,.02);
+    }
+    footer{
+      margin-top: 48px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
-    <p><a href="index.html">← Back</a></p>
-    <h1>About</h1>
+
+    <header class="topbar">
+      <div class="brand">
+        <img src="logo.png.png" alt="SUPERSONIC STUDIO logo" onerror="this.style.display='none'">
+        <div>
+          <b>Incheon Local Music Guide</b><br>
+          <span style="color:var(--muted); font-size:13px;">About</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">← Home</a>
+      </nav>
+    </header>
+
+    <h1>About.</h1>
+    <p>
+      이 페이지에 가이드 소개글을 넣어주세요. SUPERSONIC STUDIO가 인천 로컬 음악 씬을 어떻게 바라보고,
+      어떤 기준으로 스팟을 큐레이션했는지 등을 담으면 좋아요.
+    </p>
+
     <div class="box">
-      인천 로컬 뮤직 가이드 Zine의 웹 아카이브입니다.<br>
-      제작: SUPERSONIC STUDIO
+      <p style="margin:0;">
+        문의/연락처, 인스타그램, 제작 크레딧 등을 여기에 추가할 수 있어요.
+      </p>
     </div>
+
+    <footer>© SUPERSONIC STUDIO</footer>
   </div>
 </body>
 </html>
