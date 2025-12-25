@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Incheon Local Music Guide · Map</title>
 
+  <!-- Pretendard -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 
   <style>
@@ -29,7 +30,7 @@
       padding: 28px 18px 60px;
     }
 
-    /* ✅ topbar: 모바일에서도 안 깨지게 */
+    /* ✅ index와 같은 topbar, 모바일 대응 포함 */
     .topbar{
       display:flex;
       align-items:flex-start;
@@ -71,7 +72,7 @@
       color:var(--muted);
       text-decoration:none;
       padding:8px 10px;
-      border-radius:10px;
+      border-radius: 10px;
       white-space:nowrap;
     }
     .nav a:hover{
@@ -84,8 +85,133 @@
       border: 1px solid rgba(0,0,0,.10);
     }
 
-    /* ✅ index의 "Interviews." 같은 톤 */
+    /* ✅ index의 "Interviews." 느낌과 동일한 큰 타이틀 */
     h1{
       margin: 0 0 10px;
       font-size: 44px;
-      li
+      line-height: 1.05;
+      letter-spacing: -0.6px;
+    }
+    @media (max-width:900px){ h1{ font-size:36px; } }
+    @media (max-width:560px){ h1{ font-size:30px; } }
+
+    .desc{
+      margin:0 0 18px;
+      color:var(--muted);
+      max-width: 72ch;
+      line-height: 1.6;
+    }
+
+    .back{
+      display:inline-block;
+      margin: 6px 0 18px;
+      color: var(--muted);
+      text-decoration:none;
+      padding: 6px 0;
+    }
+    .back:hover{ color: var(--text); }
+
+    .section-title{
+      margin: 28px 0 10px;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+    }
+    .section-desc{
+      margin:0 0 14px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .card{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      background: rgba(0,0,0,.02);
+    }
+
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      font-weight:700;
+      border-radius: 14px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+    }
+    .btn:hover{
+      background: rgba(0,0,0,.04);
+      border-color: rgba(0,0,0,.18);
+    }
+
+    /* ✅ iframe 프리뷰(선택): 안 뜰 수도 있어서 "있어도 됨" */
+    .embed{
+      margin-top: 14px;
+      width:100%;
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,.10);
+      background:#f2f2f2;
+    }
+    .embed iframe{
+      display:block;
+      width:100%;
+      height: 560px;
+      border:0;
+    }
+    @media (max-width:560px){
+      .embed iframe{ height: 520px; }
+    }
+    .hint{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    /* ✅ Editor’s Picks 18 */
+    .grid18{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width:900px){ .grid18{ grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width:560px){ .grid18{ grid-template-columns: 1fr;} }
+
+    .pick{
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(0,0,0,.02);
+    }
+    .pick b{
+      display:block;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+    .pick p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    footer{
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header class="topbar">
+      <div class="brand">
+        <!-- ✅ 로고: index에서 쓰는 파일명과 반드시 동일해야 함 -->
+        <!-- 로고 파일 없거나 이름 불일치면
