@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>&lt;인천 로컬 뮤직 가이드&gt; 김학선 평론가님 인터뷰</title>
+  <title>Interview 01 · 김학선</title>
 
   <style>
     :root{
-      --max: 780px;
+      --max: 880px;
       --text: #111;
       --muted: rgba(0,0,0,.62);
-      --line: rgba(0,0,0,.10);
-      --card: rgba(0,0,0,.04);
+      --line: rgba(0,0,0,.12);
+      --card: rgba(0,0,0,.045);
       --radius: 16px;
     }
     body{
@@ -19,206 +19,240 @@
       color:var(--text);
       background:#fff;
       font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
-      line-height:1.85;
+      line-height: 1.85;
       word-break: keep-all;
     }
     .wrap{
       max-width: var(--max);
       margin: 0 auto;
-      padding: 44px 18px 80px;
+      padding: 40px 20px 90px;
     }
+
+    /* template header */
+    .back-link{
+      display:inline-block;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+    .back-link:hover{ text-decoration: underline; }
+
     h1{
-      font-size: 30px;
-      line-height: 1.25;
+      font-size: 44px;
+      line-height: 1.15;
       letter-spacing: -0.02em;
       margin: 0 0 14px;
     }
     .subtitle{
-      margin: 0 0 18px;
+      margin: 0 0 22px;
+      font-size: 18px;
       color: var(--muted);
-      font-size: 15px;
+    }
+    hr{
+      border: 0;
+      border-top: 1px solid var(--line);
+      margin: 26px 0 26px;
     }
 
-    /* hero image */
-    figure.hero{
-      margin: 18px 0 18px;
+    /* inserted photo */
+    .interview-hero{
+      margin: 0 0 22px;
     }
-    figure.hero img{
-      width: 100%;
-      height: auto;
+    .interview-hero img{
+      width:100%;
+      height:auto;
       display:block;
       border-radius: var(--radius);
       border: 1px solid var(--line);
     }
-    figure.hero figcaption{
-      margin-top: 8px;
-      font-size: 12px;
-      color: var(--muted);
-    }
 
-    /* meta */
+    /* body typography */
+    .content p{ margin: 0 0 14px; }
+    .lead-strong{
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
     .meta{
-      margin: 18px 0 26px;
+      margin: 18px 0 24px;
       padding: 14px 16px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: #fff;
-      display:grid;
-      gap: 8px;
+      color: rgba(0,0,0,.72);
     }
-    .meta .row{
-      display:grid;
-      grid-template-columns: 92px 1fr;
-      gap: 10px;
-      align-items: baseline;
-    }
-    .meta dt{
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      color: rgba(0,0,0,.78);
-    }
-    .meta dd{ margin: 0; }
+    .meta p{ margin: 0 0 6px; }
+    .meta p:last-child{ margin-bottom: 0; }
 
-    /* Q&A */
-    .qa{
-      margin-top: 8px;
-    }
-    .qa-item{
-      padding: 18px 0 18px;
-      border-top: 1px solid var(--line);
-    }
-    .qa-item:first-child{
-      border-top: 0;
-      padding-top: 0;
-    }
     .q{
-      margin: 0 0 10px;
+      margin-top: 22px;
       font-size: 18px;
-      line-height: 1.5;
-      font-weight: 900; /* 질문 bold */
-      letter-spacing: -0.01em;
-    }
-    .q .label{
-      display:inline-block;
-      margin-right: 8px;
-      font-weight: 1000;
-    }
-    .a p{
-      margin: 0 0 10px;
-    }
-    .a p:last-child{ margin-bottom: 0; }
-    .speaker{
-      font-weight: 900;
+      line-height: 1.6;
     }
 
-    /* highlight quote */
-    blockquote{
-      margin: 18px 0 0;
+    .course-box{
+      margin-top: 22px;
       padding: 14px 16px;
+      border-radius: 14px;
       background: var(--card);
-      border-left: 4px solid rgba(0,0,0,.25);
-      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,.06);
     }
+    .course-box p{ margin: 0; }
+    .course-box .title{ margin-bottom: 6px; }
 
-    footer{
-      margin-top: 34px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 13px;
+    /* small screens */
+    @media (max-width: 520px){
+      h1{ font-size: 34px; }
+      .subtitle{ font-size: 16px; }
+      .q{ font-size: 17px; }
     }
-    a{ color: inherit; }
   </style>
 </head>
 
 <body>
   <main class="wrap">
-    <article>
-      <header>
-        <h1>&lt;인천 로컬 뮤직 가이드&gt; 김학선 평론가님 인터뷰</h1>
+    <!-- ✅ 템플릿(상단 포맷) 그대로 -->
+    <a class="back-link" href="#">← 인터뷰 목록으로</a>
 
-        <!-- ✅ 여기 한 줄(부제/리드문)만 너의 원문으로 바꿔 끼우면 끝 -->
-        <p class="subtitle">
-          인천에서 좋은 음악을 만날 수 있는 장소들 — 보이지 않지만 분명 존재하는 인천의 음악 공간들을 기록하기
-        </p>
+    <h1>Interview 01 · 김학선</h1>
+    <p class="subtitle">인천 로컬 음악 씬, 기록, 장소에 대한 이야기</p>
 
-        <!-- ✅ 이미지 파일명: thumb-01.jpg.JPG -->
-        <figure class="hero">
-          <img src="thumb-01.jpg.JPG" alt="김학선 평론가님 인터뷰 썸네일" loading="lazy" />
-          <!-- 필요하면 캡션 -->
-          <!-- <figcaption>Photo: SUPERSONIC STUDIO</figcaption> -->
-        </figure>
+    <hr />
 
-        <dl class="meta">
-          <div class="row">
-            <dt>INTERVIEW</dt>
-            <dd>맹주희</dd>
-          </div>
-          <div class="row">
-            <dt>DATE</dt>
-            <dd>2025.12.22</dd>
-          </div>
-          <div class="row">
-            <dt>PLACE</dt>
-            <dd>토니커피하우스</dd>
-          </div>
-        </dl>
-      </header>
+    <!-- ✅ 1) 위에 사진 삽입 (파일명 그대로) -->
+    <figure class="interview-hero">
+      <img src="thumb-01.jpg.JPG" alt="Interview 01 · 김학선 - 사진" loading="lazy" />
+    </figure>
 
-      <!-- =========================
-           Q&A (여기부터 “원문 그대로” 붙여넣기)
-           - 질문은 <h2 class="q"> 안에
-           - 답변은 <div class="a"><p>...</p></div> 안에 문단별로
-         ========================= -->
+    <!-- ✅ 2) 아래에 인터뷰 텍스트 삽입 -->
+    <section class="content">
 
-      <section class="qa">
+      <p class="lead-strong"><strong>인천에서 ‘좋은 음악’을 만날 수 있는 공간들: 배다리 헌책방부터 송도의 콘서트홀까지</strong></p>
 
-        <section class="qa-item" id="q1">
-          <h2 class="q"><span class="label">Q.</span>
-            김학선님, 사는 곳도 아시겠지만 동인천, 그 주변을 여행할만한 지역이 아니었잖아요.
-            저는 늘 동인천이 재밌을 것 같다는 생각을 하고 살았는데요.
-            지금 동인천에서 음악 듣기 좋다고 생각하는 공간이 있을까요?
-          </h2>
-          <div class="a">
-            <!-- ✅ 아래는 예시 자리. 너의 “답변 원문”을 문단별로 그대로 붙여넣어줘 -->
-            <p><span class="speaker">학선:</span> (여기에 답변 원문 문단 1)</p>
-            <p>(여기에 답변 원문 문단 2)</p>
-          </div>
-        </section>
+      <p><strong>INTERVIEW: 김학선</strong></p>
 
-        <section class="qa-item" id="q2">
-          <h2 class="q"><span class="label">Q.</span> (질문 2 원문)</h2>
-          <div class="a">
-            <p><span class="speaker">학선:</span> (답변 원문)</p>
-          </div>
-        </section>
+      <p>
+        &lt;스페이스 공감&gt; 기획위원, 멜로 &lt;트랙제로&gt; 전문위원, &lt;한국대중음악상&gt; 선정위원이자
+        동인천에 거주하며 인천의 역사·문화, 그리고 지역 뮤지션들과 꾸준히 소통해 온 대중음악 평론가 김학선을 만나
+        인천의 음악 공간들에 대해 이야기를 나눴다. “지금 인천에 음악 씬이 있나요?”라는 질문에서 출발한 인터뷰는,
+        인천 곳곳에 이미 존재하는 ‘좋은 음악 장소들’을 구체적으로 기록하는 대화가 되었다.
+      </p>
 
-        <section class="qa-item" id="q3">
-          <h2 class="q"><span class="label">Q.</span> (질문 3 원문)</h2>
-          <div class="a">
-            <p><span class="speaker">학선:</span> (답변 원문)</p>
-          </div>
-        </section>
+      <div class="meta">
+        <p>인터뷰 진행, 정리: 맹주희</p>
+        <p>사진: 김영진</p>
+        <p>장소: 패치워크</p>
+      </div>
 
-        <section class="qa-item" id="q4">
-          <h2 class="q"><span class="label">Q.</span> (질문 4 원문)</h2>
-          <div class="a">
-            <p><span class="speaker">학선:</span> (답변 원문)</p>
-          </div>
+      <p class="q"><strong>평론가님, 시간 내주셔서 정말 감사합니다. 오늘은 인천의 ‘음악 공간’ 이야기를 같이 나눠 보려고 해요. 우선 큰 질문부터 여쭤볼게요. 지금 인천에 ‘음악 씬’이 있다고 생각하시나요?</strong></p>
 
-          <!-- 필요하면 하이라이트 한 줄 -->
-          <blockquote>
-            <strong>HIGHLIGHT</strong><br/>
-            (여기에 인용문 한 문장)
-          </blockquote>
-        </section>
+      <p>
+        저는 아티스트, 관객, 공간. 이 세 개가 어우러져야 씬이라고 부를 수 있다고 생각하는데요.
+        과거에는 인천에 정말 번성했던 씬이 있었어요. 동인천과 관교동 쪽에 헤비메탈 씬이라는 게 있었고,
+        더 거슬러 올라가면 부평 애스컴시티도 있었고요. 제가 인천에 온 지 9년 됐는데요.
+        그때는 모든 게 흔적만 남아 있었어요. 인디 씬이 시작된 90년대 중후반부터 인천의 음악 씬이
+        거의 몰락했다고 보거든요. 그런데 몇 년 사이 정말 많이 좋아졌어요.
+        새로운 공간들도 생겨나고 아티스트들도 조금씩 생겨나고 있어요.
+        확실히 인천음악창작소나 부평구문화재단의 역할이 컸던 것 같아요.
+      </p>
 
-      </section>
+      <p class="q"><strong>인천에서 씬이 다시 만들어지기 위해서는 무엇이 필요할까요?</strong></p>
 
-      <footer>
-        © SUPERSONIC STUDIO
-      </footer>
-    </article>
+      <p>
+        아티스트에게 목표가 있어야 된다고 생각해요. 대구나 부산 씬의 경우,
+        막 음악을 시작한 친구들이 지역 클럽의 인디 뮤지션을 보면서 ‘저 형들, 저 누나들 되게 멋있다.’
+        ‘나도 저렇게 음악을 해야지.’ 하는 목표나 꿈이 생길 수 있는 환경이라고 생각하는데요.
+        인천은 그게 없었던 거죠. 지금은 막 만들어 가고 있는 과정에 있는 것 같아요.
+        제가 매년 인천음악창작소에서 심사를 해 오고 있는데, 최근 정말 좋은 아티스트들이 많이 지원하고 있어요.
+        이번 ‘산만한시선’이나 ‘컨파인드 화이트’ 같은 팀은 정말 좋은 팀이에요.
+      </p>
+
+      <p class="q"><strong>인천에서 추천하고 싶은 음악 공간이 있다면?</strong></p>
+
+      <p>
+        물론 공연장이나 LP바들도 있지만, 배다리의 책방들도 좋은 음악 공간이에요.
+        특히 ‘아벨서점’은 훌륭하다고 생각해요. 언제나 클래식 FM이 흘러나오고 있어요. 참 특별해요.
+        그리고 음악 서적을 아벨서점처럼 모아 놓은 데가 별로 없어요. 저도 아벨에 가끔 음악 책을 사러 가거든요.
+      </p>
+
+      <p class="q"><strong>‘삼성서림’도 좋죠. 사장님이 직접 만드신 수제 스피커에서 늘 좋은 음악이 흘러나오잖아요. 가끔 음악도 추천해 주시고요.</strong></p>
+
+      <p>
+        맞아요. 삼성서림에서는 음반도 판매하시더라고요. 손님 중에서도 아마 배경 음악을 전혀 신경 안 쓰는 분들도
+        분명 많을 거예요. 그럼에도 그렇게 헌책방이라는 고유의 정서와 어울리는 음악을 틀어 두시는 게 멋있다고 생각해요.
+        동인천 ‘토니커피하우스’도 그런 곳이에요. 여기는 커피도 맛있는데 음악도 참 좋아요.
+        마침 대표님과 대화를 나눌 기회가 한 번 있었는데, 이 공간에서 어떤 시간대에 어떤 음악이 흘러나오면 좋을 것 같다는 생각을 하면서
+        계속 음악을 들어 보고 하나씩 선별해서 플레이리스트를 만든대요.
+      </p>
+
+      <p class="q"><strong>거긴 주로 어떤 음악들이 나오나요?</strong></p>
+
+      <p>
+        재즈나 AOR이 주로 나오고, 클래식도 가끔 나오는 것 같아요. 그리고 ‘습관들’이라는 카페도 있어요.
+        여기는 사장님이 90년대 인디 매니아거든요. 엘리엇 스미스도 듣다가 요즘은 파더 존 미스티도 들으시고,
+        라디오헤드 같은 음악들을 많이 트시는 것 같아요.
+      </p>
+
+      <p class="q"><strong>공연장 말고도 의외의 좋은 음악 장소들이 많네요.</strong></p>
+
+      <p>
+        그렇죠. 저희가 인천의 오래된 것들을 좋아하는 게 그런 이유잖아요.
+        고풍스러운 매력이 있고 오래된 공간이 주는 안락함 같은 것들.
+        개항로에 있는 ‘싸리재’도 그렇거든요. 거기서 잊을 수 없는 순간이 한 번 있었는데,
+        거기 LP가 되게 많아요. 축음기, 스피커 같은 것도 많고요.
+        LP 중에서 원하는 걸 틀어 달라고 하면 틀어 주시거든요.
+        동물원 1집을 틀어 주셔서 김창기가 부른 ‘잊혀지는 것’을 들었는데,
+        그 곡이 제 인생의 노래이기도 하고 그 공간이 주는 특별함이 있더라고요.
+      </p>
+
+      <p class="q"><strong>맞아요. 책방이나 카페 외에도 추천해 주실 만한 장소가 있을까요?</strong></p>
+
+      <p>
+        제가 ‘아트센터인천’을 주변에 많이 추천해요. 인천 최고의 공연장이라고 생각해요.
+        한 달에 한 번 정도 인천시향이 공연을 하는데 많은 사람들이 모르고 있더라고요.
+        시민들을 위해서 좋은 공연을 저렴하게 기획하거든요. 기획 공연들은 만 원이면 볼 수 있어요.
+        음향 시설도 예술의 전당에 뒤지지 않아요.
+      </p>
+
+      <p>
+        최근 필리프 헤레베허의 내한 연주를 봤는데 4만 원 정도에 봤어요.
+        레전드 지휘자의 공연을 좋은 공연장에서 4만 원에 볼 수 있는 건 정말 훌륭한 복지죠.
+        근처에 잠봉뵈르가 맛있는 ‘르쁠라드수르’라는 집이 있고, 유명한 ‘돌핀커피 오마카세’도 있으니까
+        데이트하기에도 좋을 거예요.
+      </p>
+
+      <p class="q"><strong>마지막으로 김학선 평론가님이 추천하는 ‘인천에서의 하루 음악 코스’를 부탁드릴게요.</strong></p>
+
+      <p>
+        인천이니까 중식으로 시작하죠. 먼저 신포에 있는 ‘전가복’에 갑니다.
+        2만 원 대의 세트 메뉴를 시키면 다양한 메뉴를 코스처럼 맛볼 수 있어요.
+        게다가 4인 이상 세트를 시키면 양장피를 서비스로 줍니다. 정말 최고의 가성비죠.
+        식후에는 토니커피하우스에 가서 음악을 들으면서 커피를 마셔요.
+        빨간 벽돌과 아치, 이전에 번성한 호프집이었던 건물의 흔적들을 보는 재미도 있을 거예요.
+        ‘습관들’에 가서 인디 음악을 들으면서 수다를 떨어도 좋고요. 그리고 아벨서점으로 가면 좋을 것 같아요.
+      </p>
+
+      <p>
+        싸리재길을 지나 배다리에 있는 아벨서점에 오후 4시쯤 도착하면 딱 좋겠네요.
+        언제나처럼 클래식 FM이 흘러나오고 있을 겁니다. 거기서 음악 책을 구경해도 좋고요.
+        그리고 마침 아트센터인천에서 공연이 있는 날이라면, 슬슬 송도로 넘어갑니다.
+      </p>
+
+      <p>
+        저녁 식사는 송도 ‘카레즈’로 가요. 음반이나 음악 서적도 많고, 음악 선곡도 좋아서
+        맛있는 카레와 좋은 음악을 같이 즐길 수 있는 곳이거든요.
+        (점심 배가 아직 안 꺼졌다면 ‘르쁠라드수르’에서 간단하게 잠봉뵈르를 먹는 것도 좋겠네요.)
+        그러고 나서 만 원을 내면 콘서트홀에서 인천시향의 연주를 감상할 수 있어요.
+        공연을 보고 나오면 그 앞으로 밤바다가 보이거든요.
+        그 고요히 흐르는 풍경을 감상하면서 하루를 마무리하면 정말 좋을 것 같습니다.
+      </p>
+
+      <div class="course-box">
+        <p class="title"><strong>김학선 평론가가 추천하는 인천에서의 하루 음악 코스</strong></p>
+        <p>전가복 &gt; 토니커피하우스/습관들 &gt; 아벨서점 &gt; 카레즈/르쁠라드수르 &gt; 아트센터인천</p>
+      </div>
+
+    </section>
   </main>
 </body>
 </html>
