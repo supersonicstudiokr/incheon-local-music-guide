@@ -1,54 +1,177 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Interview 02 · 부평구문화재단 정지혜 대리</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Interview 02 · 정지혜</title>
+
   <style>
-    body {
-      font-family: system-ui, sans-serif;
-      margin: 0;
-      background-color: #ffffff;  /* ✅ 흰 배경 */
-      color: #111111;             /* ✅ 검정 글씨로 변경 (중요) */
+    :root{
+      --max: 880px;
+      --text: #111;
+      --muted: rgba(0,0,0,.62);
+      --line: rgba(0,0,0,.12);
+      --card: rgba(0,0,0,.045);
+      --radius: 16px;
     }
-    .wrap {
-      max-width: 760px;
+    body{
+      margin:0;
+      color:var(--text);
+      background:#fff;
+      font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      line-height: 1.85;
+      word-break: keep-all;
+    }
+    .wrap{
+      max-width: var(--max);
       margin: 0 auto;
-      padding: 32px 18px;
+      padding: 40px 20px 90px;
     }
-    a {
-      color: #111111;             /* ✅ 링크도 블랙 */
+
+    /* template header */
+    .back-link{
+      display:inline-block;
+      color: var(--text);
       text-decoration: none;
+      font-size: 15px;
+      margin-bottom: 18px;
     }
-    a:hover {
-      text-decoration: underline;
+    .back-link:hover{ text-decoration: underline; }
+
+    h1{
+      font-size: 44px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 0 0 14px;
     }
-    .sub {
-      color: rgba(0,0,0,0.68);    /* ✅ 회색 서브텍스트 */
+    .subtitle{
+      margin: 0 0 22px;
+      font-size: 18px;
+      color: var(--muted);
+    }
+    hr{
+      border: 0;
+      border-top: 1px solid var(--line);
+      margin: 26px 0 26px;
+    }
+
+    /* inserted photo */
+    .interview-hero{
+      margin: 0 0 22px;
+    }
+    .interview-hero img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+    }
+
+    /* body typography */
+    .content p{ margin: 0 0 14px; }
+    .lead-strong{
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+    .meta{
+      margin: 18px 0 24px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: rgba(0,0,0,.72);
+    }
+    .meta p{ margin: 0 0 6px; }
+    .meta p:last-child{ margin-bottom: 0; }
+
+    .q{
+      margin-top: 22px;
+      font-size: 18px;
       line-height: 1.6;
     }
-    hr {
-      border: none;
-      border-top: 1px solid rgba(0,0,0,0.12); /* ✅ 연한 회색 라인 */
-      margin: 24px 0;
+
+    /* small screens */
+    @media (max-width: 520px){
+      h1{ font-size: 34px; }
+      .subtitle{ font-size: 16px; }
+      .q{ font-size: 17px; }
     }
   </style>
 </head>
+
 <body>
   <main class="wrap">
-    <p><a href="./index.html">← 인터뷰 목록으로</a></p>
+    <a class="back-link" href="index.html">← 홈으로 돌아가기</a>
 
-    <h1>Interview 02 · 부평구문화재단 정지혜 대리</h1>
-    <p class="sub">
-      부평구 문화도시 사업, 인천음악창작소, 지역 기반 문화사업에 대한 이야기
-    </p>
+    <h1>Interview 02 · 정지혜</h1>
+    <p class="subtitle">부평 로컬 음악 씬, 문화도시 5년, 음악 사업의 현장 기록</p>
 
-    <hr>
+    <hr />
+    <figure class="interview-hero">
+      <img src="thumb-02.jpg.JPG" alt="Interview 02 · 정지혜 - 사진" loading="lazy" />
+    </figure>
 
-    <p>
-      👉 여기에 정지혜 대리 인터뷰 전문을 그대로 붙여넣으세요.<br>
-      문단 단위로 나눠도 괜찮습니다.
-    </p>
+    <section class="content">
+      <p class="lead-strong"><strong>부평에서 ‘좋은 음악’이 지속되는 방식: 문화도시 5년, 음악 사업의 현장 기록</strong></p>
+
+      <p><strong>INTERVIEW: 부평구문화재단 정지혜 대리</strong></p>
+
+      <p>
+        부평구문화재단 문화도시센터에서 음악과 서브컬처 관련 사업을 꾸준히 담당해 온 정지혜 대리를 만나
+        지역에 어떤 음악 인프라가 있고, 현장에서 어떻게 작동하고 있는지에 대해 이야기를 나눴다.
+      </p>
+
+      <div class="meta">
+        <p>인터뷰 진행, 정리: 맹주희(슈퍼소닉 스튜디오)</p>
+        <p>사진: 김영진(슈퍼소닉 스튜디오)</p>
+        <p>장소: 부평아트센터</p>
+      </div>
+
+      <p class="q"><strong>안녕하세요, 대리님. 간단히 자기소개 부탁드리겠습니다.</strong></p>
+      <p>
+        안녕하세요. 저는 2018년 부평구문화재단에 입사해 문화도시센터에서 근무하고 있는 정지혜입니다.
+        재단에 처음 와서는 지역문화사업을 담당했고, 2021년 부평구가 문화도시로 선정된 이후 문화도시센터로 이동해
+        현재까지 음악과 서브컬처 관련 사업을 주로 담당하고 있어요.
+        문화도시센터에서 5년 동안 계속 같은 사업을 맡아온 경우는 흔치 않은데,
+        그만큼 이 사업을 처음부터 끝까지 지켜보고 운영해 온 입장이라고 볼 수 있을 것 같아요.
+      </p>
+
+      <p class="q"><strong>지역 뮤지션들을 위한 지원사업에는 어떤 것들이 있나요?</strong></p>
+      <p>
+        메인 사업은 ‘지역 뮤지션 지원사업’이에요. 2021년부터 2024년까지는 음원·영상 제작 지원을 중심으로 진행했고,
+        2025년에는 뮤지션들이 본인만의 브랜드를 만들어 나갈 수 있도록 돕는 브랜딩 지원 사업으로 확장했습니다.
+        이후에는 활동 지원으로 이어지는데요. &lt;뮤직 플로우 페스티벌&gt;, &lt;오늘도 무사히&gt; 같은 큰 기획 공연에서
+        선배 뮤지션들과 함께 무대에 설 수 있는 기회를 만들기도 하고, 지역 내 클럽이나 펍에서의 연합 라이브 공연을 지원했습니다.
+        올해는 홍대 ‘벨로주’ 공연까지 확장했고, 부평구청 등 유관기관과의 행정 협업을 통해서
+        공연이 필요한 자리에 지역 뮤지션들이 설 수 있도록 지원하는 &lt;뮤직 플로우 부평&gt;이라는 사업도 운영했습니다.
+      </p>
+
+      <p class="q"><strong>문화도시 사업이 올해 5년 차로 곧 마무리될 예정인데요. 이 5년을 통해 어떤 변화가 있었나요?</strong></p>
+      <p>
+        가장 큰 변화는 5년간 안정적으로 국비 지원을 받을 수 있게 되면서, 비교적 큰 단위의 사업과 다양한 시도를 할 수 있게 됐다는 점이에요.
+        단년도 사업 위주일 때는 시도하기 어려웠던 프로젝트들도 문화도시 사업을 통해 가능해졌죠.
+        부평은 문화도시 사업 안에서 음악과 서브컬처를 도시의 특성화 사업으로 설정해 집중적으로 운영해 왔는데요.
+        특히 서브컬처 사업은 다른 지자체에서는 쉽게 볼 수 없는 형태라서, 부평만의 색깔 있는 사업으로 평가받기도 했습니다.
+        사업을 통해 도시의 문화적 이미지를 조금씩 만들어갈 수 있었다는 점이 의미 있다고 생각해요.
+      </p>
+
+      <p class="q"><strong>개인적으로 사람들이 더 자주 써줬으면 하는 공간이 있다면요?</strong></p>
+      <p>
+        ‘부평아트센터’요. 공연, 전시, 교육, 지원사업까지 시민들이 다양한 방식으로 문화를 향유할 수 있는 정말 좋은 공간이에요.
+        특히 청년들을 대상으로 DJ, VJ 클래스처럼 다른 지역에서는 쉽게 접하기 어려운 교육 프로그램을 무료로 운영했고,
+        음악 디깅 클럽처럼 소셜살롱 형태의 프로그램도 진행해 왔어요.
+        서울로 나가야만 재미있는 문화가 있는 게 아니라, 인천 내에서도 충분히 재미있는 문화 경험이 가능하다는 걸 보여주고 싶어요.
+      </p>
+
+      <p class="q"><strong>마지막으로 추천하고 싶은 장소가 있다면 부탁드리겠습니다.</strong></p>
+      <p>
+        부평에서는 ‘클럽 노크’를 추천하고 싶어요. 자체 공연이 활발하고, 음악을 좋아하는 분들이 진심으로 운영하는 공간이라
+        음향이나 내부 하드웨어도 잘 갖춰져 있어요.
+        그 외에도 부평에 공연하기 좋은 장소로 부평구문화재단에서 운영하는 ‘부평문화사랑방’과 ‘올래공연장’ 등이 있어요.
+        또 2026년 상반기에는 부평아트센터 3층에 복합음악공간이 새롭게 개관할 예정인데요.
+        리스닝 룸 등으로 조성될 예정이니, 관심 갖고 지켜봐 주세요.
+      </p>
+    </section>
   </main>
 </body>
 </html>
