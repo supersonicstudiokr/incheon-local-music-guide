@@ -7,11 +7,11 @@
 
   <style>
     :root{
-      --max: 880px;
+      --max: 980px;
       --text: #111;
       --muted: rgba(0,0,0,.62);
       --line: rgba(0,0,0,.12);
-      --card: rgba(0,0,0,.045);
+      --soft: rgba(0,0,0,.045);
       --radius: 16px;
     }
     body{
@@ -19,7 +19,7 @@
       color:var(--text);
       background:#fff;
       font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
-      line-height: 1.85;
+      line-height: 1.75;
       word-break: keep-all;
     }
     .wrap{
@@ -28,7 +28,7 @@
       padding: 40px 20px 90px;
     }
 
-    /* header */
+    /* top */
     .back-link{
       display:inline-block;
       color: var(--text);
@@ -42,18 +42,18 @@
       font-size: 44px;
       line-height: 1.15;
       letter-spacing: -0.02em;
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       font-weight: 900;
     }
     .subtitle{
-      margin: 0 0 22px;
+      margin: 0 0 18px;
       font-size: 16px;
       color: var(--muted);
     }
     hr{
       border: 0;
       border-top: 1px solid var(--line);
-      margin: 22px 0 18px;
+      margin: 18px 0 14px;
     }
 
     /* actions */
@@ -61,7 +61,8 @@
       display:flex;
       gap: 10px;
       flex-wrap: wrap;
-      margin: 0 0 18px;
+      margin: 0 0 14px;
+      align-items: center;
     }
     .btn{
       display:inline-block;
@@ -75,65 +76,104 @@
     }
     .btn:hover{ background: rgba(0,0,0,.04); }
 
-    /* bubbles */
-    .spots{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 12px;
-      margin-top: 10px;
+    /* zone nav (one line) */
+    .zone-nav{
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+      padding: 10px 0;
+      margin: 10px 0 18px;
+      z-index: 10;
     }
-    .bubble{
-      display:block;
-      padding: 14px 14px;
-      border-radius: 18px;
-      border: 1px solid rgba(0,0,0,.12);
-      text-decoration:none;
-      color:#111;
-      background: rgba(0,0,0,.03);
-    }
-    .bubble:hover{ background: rgba(0,0,0,.06); }
-
-    .bubble .top{
+    .zone-row{
       display:flex;
-      align-items: baseline;
-      justify-content: space-between;
+      flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 6px;
+      align-items:center;
     }
-    .bubble .name{
+    .zone-chip{
+      display:inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.12);
+      background: rgba(0,0,0,.03);
+      color: #111;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .zone-chip:hover{ background: rgba(0,0,0,.06); }
+
+    /* sections */
+    .zone-section{ margin: 26px 0 34px; }
+    .zone-title{
+      font-size: 18px;
       font-weight: 900;
-      line-height: 1.25;
+      margin: 0 0 12px;
+      display:flex;
+      align-items:center;
+      gap:10px;
     }
-    .bubble .pick{
+    .zone-title span{
       font-size: 12px;
       color: rgba(0,0,0,.55);
       border: 1px solid rgba(0,0,0,.10);
       padding: 3px 8px;
       border-radius: 999px;
-      background: rgba(255,255,255,.6);
-      white-space: nowrap;
+      background: rgba(0,0,0,.03);
+      font-weight: 700;
     }
-    .bubble .note{
-      font-size: 14px;
-      line-height: 1.5;
-      color: rgba(0,0,0,.74);
-      margin-bottom: 8px;
+
+    /* spot list as text buttons */
+    .spot-list{
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
     }
-    .bubble .addr{
-      font-size: 12.5px;
-      color: rgba(0,0,0,.60);
-      line-height: 1.45;
+    .spot-item{
+      border: 1px solid rgba(0,0,0,.12);
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: #fff;
     }
-    .section-label{
-      margin: 18px 0 8px;
+    .spot-btn{
+      display:inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #111;
       font-weight: 900;
+      border-radius: 999px;
+      padding: 8px 10px;
+      background: rgba(0,0,0,.03);
+      border: 1px solid rgba(0,0,0,.10);
+    }
+    .spot-btn:hover{ background: rgba(0,0,0,.06); }
+    .spot-meta{
+      margin-top: 10px;
+      color: rgba(0,0,0,.72);
       font-size: 14px;
-      color: rgba(0,0,0,.75);
+      line-height: 1.55;
+    }
+    .spot-addr{
+      margin-top: 6px;
+      color: rgba(0,0,0,.58);
+      font-size: 12.5px;
+    }
+
+    /* optional: small helper text */
+    .hint{
+      font-size: 13px;
+      color: rgba(0,0,0,.55);
+      margin: 8px 0 0;
     }
 
     @media (max-width: 520px){
       h1{ font-size: 34px; }
       .subtitle{ font-size: 15px; }
+      .zone-section{ margin: 20px 0 28px; }
     }
   </style>
 </head>
@@ -143,7 +183,6 @@
     <a class="back-link" href="index.html">← 홈으로 돌아가기</a>
 
     <h1>Editor’s Picks</h1>
-
     <p class="subtitle">
       슈퍼소닉 스튜디오가 직접 큐레이션한 <strong>15개의</strong> 인천 음악 스팟을 확인하세요.<br>
       아래 15개의 스팟 중 맘에 드는 장소를 클릭하면 지도 링크로 연결됩니다.
@@ -151,166 +190,149 @@
 
     <hr>
 
+    <!-- ✅ 전체 지도(저장 리스트) 연동 -->
     <div class="actions">
-      <a class="btn" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">전체 15개 저장 지도 리스트 열기</a>
+      <a class="btn" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
+        전체 15개 저장 지도 리스트 열기
+      </a>
+      <span class="hint">TIP: 나중에 각 장소의 개별 네이버 지도 링크를 넣으면 더 정확하게 연결돼요.</span>
     </div>
 
-    <!-- ✅ 15개 버블: 지금은 “전체 리스트 링크”로 연결되어 있어요.
-         각 장소 “개별 링크”를 나중에 확보하면 href만 교체하면 됩니다. -->
-    <section class="spots">
+    <!-- ✅ 존 네비(한 줄) -->
+    <nav class="zone-nav" aria-label="Zone navigation">
+      <div class="zone-row">
+        <a class="zone-chip" href="#bupyeong">부평</a>
+        <a class="zone-chip" href="#dongincheon">동인천</a>
+        <a class="zone-chip" href="#baedari">배다리</a>
+        <a class="zone-chip" href="#songdo">송도</a>
+        <a class="zone-chip" href="#yeongjong">영종도</a>
+      </div>
+    </nav>
 
-      <!-- 부평구 -->
-      <div class="section-label">부평구</div>
+    <!-- ===================== -->
+    <!-- 부평 -->
+    <!-- ===================== -->
+    <section id="bupyeong" class="zone-section">
+      <h2 class="zone-title">부평 <span>4 spots</span></h2>
 
-      <a class="bubble" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
-        <div class="top">
-          <div class="name">부평아트센터</div>
-          <div class="pick">EDITOR’S PICK 1</div>
+      <div class="spot-list">
+        <div class="spot-item">
+          <a class="spot-btn" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
+            EDITOR’S PICK 1. 부평아트센터
+          </a>
+          <div class="spot-meta">
+            부평구문화재단이 운영하는 복합문화예술공간. 다양한 장르의 공연을 만날 수 있으며, 야외광장 일대에서 열리는 ‘뮤직 플로우 페스티벌’은 멀리서도 찾아오는 축제로 자리매김하고 있다.
+          </div>
+          <div class="spot-addr">인천 부평구 아트센터로 168</div>
         </div>
-        <div class="note">부평구문화재단이 운영하는 복합문화예술공간. 다양한 장르의 공연을 만날 수 있으며, 야외광장 일대에서 열리는 ‘뮤직 플로우 페스티벌’은 멀리서도 찾아오는 축제로 자리매김하고 있다.</div>
-        <div class="addr">인천 부평구 아트센터로 168</div>
-      </a>
 
-      <a class="bubble" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
-        <div class="top">
-          <div class="name">인천음악창작소</div>
-          <div class="pick">EDITOR’S PICK 2</div>
+        <div class="spot-item">
+          <a class="spot-btn" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
+            EDITOR’S PICK 2. 인천음악창작소
+          </a>
+          <div class="spot-meta">
+            인천 뮤지션을 지원하는 음악 거점. 음반 제작부터 해외 지원까지 폭넓게 운영한다. 2025년 음반제작 지원사업에는 산만한시선, 컨파인드 화이트 등이 선정되었다.
+          </div>
+          <div class="spot-addr">인천 부평구 수변로 190 (캠프마켓 내)</div>
         </div>
-        <div class="note">인천 뮤지션을 지원하는 음악 거점. 음반 제작부터 해외 지원까지 폭넓게 운영한다. 2025년 음반제작 지원사업에는 산만한시선, 컨파인드 화이트 등이 선정되었다.</div>
-        <div class="addr">인천 부평구 수변로 190 (캠프마켓 내)</div>
-      </a>
 
-      <a class="bubble" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
-        <div class="top">
-          <div class="name">슬로스레코드바</div>
-          <div class="pick">EDITOR’S PICK 3</div>
+        <div class="spot-item">
+          <a class="spot-btn" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
+            EDITOR’S PICK 3. 슬로스레코드바
+          </a>
+          <div class="spot-meta">
+            낯선 음악을 발견하게 하는 DJ의 선곡, 섬세한 주류 라인업, 셰프의 훌륭한 음식. (추천 메뉴: 초리조 치폴레 파스타, 브라운치즈 피자)
+          </div>
+          <div class="spot-addr">인천 부평구 부평문화로79번길 19, 2층</div>
         </div>
-        <div class="note">낯선 음악을 발견하게 하는 DJ의 선곡, 섬세한 주류 라인업, 셰프의 훌륭한 음식. (추천 메뉴: 초리조 치폴레 파스타, 브라운치즈 피자)</div>
-        <div class="addr">인천 부평구 부평문화로79번길 19, 2층</div>
-      </a>
 
-      <a class="bubble" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
-        <div class="top">
-          <div class="name">소리그림</div>
-          <div class="pick">EDITOR’S PICK 4</div>
+        <div class="spot-item">
+          <a class="spot-btn" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
+            EDITOR’S PICK 4. 소리그림
+          </a>
+          <div class="spot-meta">
+            부평 지하상가에서 시작해 35년 넘게 이어온 레코드숍. 국내에서 구하기 어려운 해외 음반도 주문 가능. 다음 카페에서 재고 확인 등이 가능.
+          </div>
+          <div class="spot-addr">인천 부평구 대정로 66, 1층 113호</div>
         </div>
-        <div class="note">부평 지하상가에서 시작해 35년 넘게 이어온 레코드숍. 국내에서 구하기 어려운 해외 음반도 주문 가능. 다음 카페에서 재고 확인 등이 가능.</div>
-        <div class="addr">인천 부평구 대정로 66, 1층 113호</div>
-      </a>
-
-      <!-- 동인천 -->
-      <div class="section-label">동인천</div>
-
-      <a class="bubble" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
-        <div class="top">
-          <div class="name">토니커피하우스</div>
-          <div class="pick">EDITOR’S PICK 5</div>
-        </div>
-        <div class="note">재즈·AOR 등 편안한 음악을 큐레이션하는 로스터리 카페. 훌륭한 드립커피를 좋은 음악과 함께 즐길 수 있다.</div>
-        <div class="addr">인천 중구 우현로90번길 19-8</div>
-      </a>
-
-      <a class="bubble" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
-        <div class="top">
-          <div class="name">버텀라인</div>
-          <div class="pick">EDITOR’S PICK 6</div>
-        </div>
-        <div class="note">주말마다 라이브 공연이 열리는 인천 최초의 재즈클럽. 100년이 넘은 근대 건축물답게 콘크리트 건물과는 또 다른 소리의 울림을 경험할 수 있다.</div>
-        <div class="addr">인천 중구 신포로23번길 22</div>
-      </a>
-
-      <a class="bubble" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
-        <div class="top">
-          <div class="name">탄트라</div>
-          <div class="pick">EDITOR’S PICK 7</div>
-        </div>
-        <div class="note">1979년 개업한 국내 최장수 LP바. 이국적인 붉은 차양으로 장식된 외관이 트레이드마크. 주로 감성적인 해외 명곡들을 선곡.</div>
-        <div class="addr">인천 중구 신포로27번길 23, 1층</div>
-      </a>
-
-      <a class="bubble" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
-        <div class="top">
-          <div class="name">뮤직가이드</div>
-          <div class="pick">EDITOR’S PICK 8</div>
-        </div>
-        <div class="note">루비살롱 1, 2층에서 함께 운영되는 레코드숍. 빈티지 LP부터 새 음반까지 큐레이션이 탄탄하고 관리가 깔끔하다. CD·카세트도 상당량 보유.</div>
-        <div class="addr">인천 중구 신포로35번길 17</div>
-      </a>
-
-      <a class="bubble" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
-        <div class="top">
-          <div class="name">인천여관X루비살롱</div>
-          <div class="pick">EDITOR’S PICK 9</div>
-        </div>
-        <div class="note">60년대 지어진 ‘인천여관’ 건물을 재생해 만든 라이브 공간. 공연·전시·DJ 나잇·감상회 등 프로그램이 열린다.</div>
-        <div class="addr">인천 중구 신포로35번길 17</div>
-      </a>
-
-      <a class="bubble" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
-        <div class="top">
-          <div class="name">흐르는 물</div>
-          <div class="pick">EDITOR’S PICK 10</div>
-        </div>
-        <div class="note">1989년 문을 연 라이브 클럽이자 LP카페. 주류 외에도 지리산 화개녹차, 남해 유자차, 체리차 등 차 메뉴가 있다. 주로 국내 포크·블루스를 선곡.</div>
-        <div class="addr">인천 중구 우현로39번길 17 (신포동)</div>
-      </a>
-
-      <!-- 배다리 -->
-      <div class="section-label">배다리</div>
-
-      <a class="bubble" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
-        <div class="top">
-          <div class="name">삼성서림</div>
-          <div class="pick">EDITOR’S PICK 11</div>
-        </div>
-        <div class="note">배다리의 헌책방. 사장님이 직접 만든 수제 스피커에서 흐르는 클래식과 소프트록 그리고 잘 정리된 헌책. 가끔 작은 공연이 열린다.</div>
-        <div class="addr">인천 동구 금곡로 9-1</div>
-      </a>
-
-      <a class="bubble" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
-        <div class="top">
-          <div class="name">형제레코드</div>
-          <div class="pick">EDITOR’S PICK 12</div>
-        </div>
-        <div class="note">50년 가까이 자리를 지켜온 중고 LP숍. 청음은 어렵지만 중고 LP를 균일가로 저렴하게 구매할 수 있다.</div>
-        <div class="addr">인천 동구 송림로 25</div>
-      </a>
-
-      <!-- 연수구 -->
-      <div class="section-label">연수구</div>
-
-      <a class="bubble" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
-        <div class="top">
-          <div class="name">아트센터인천</div>
-          <div class="pick">EDITOR’S PICK 13</div>
-        </div>
-        <div class="note">클래식 전용 콘서트홀과 다목적극장을 갖춘 복합 공연장. 인천시향의 정기연주회가 꾸준히 열리며, 좋은 공연을 만원 또는 천원에 경험할 수 있는 특별가 기획이 있다.</div>
-        <div class="addr">인천 연수구 아트센터대로 222</div>
-      </a>
-
-      <a class="bubble" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
-        <div class="top">
-          <div class="name">카레즈</div>
-          <div class="pick">EDITOR’S PICK 14</div>
-        </div>
-        <div class="note">맛있는 카레와 좋은 음악이 있는 곳. 매장에 준비된 음반들과 CD 플레이어로 음악을 들으며 식사를 할 수도 있고, 음악 관련 서적들도 많다.</div>
-        <div class="addr">인천 연수구 아트센터대로 203 송도센트럴파크푸르지오시티 B동 1층 146호</div>
-      </a>
-
-      <!-- 영종도 -->
-      <div class="section-label">영종도</div>
-
-      <a class="bubble" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
-        <div class="top">
-          <div class="name">베토벤하우스</div>
-          <div class="pick">EDITOR’S PICK 15</div>
-        </div>
-        <div class="note">70평 규모의 뮤직홀을 갖춘 대형 청음 카페. 클래식 공연 영상이나 청음 콘텐츠를 최상급 오디오 환경에서 커피와 함께 즐길 수 있다.</div>
-        <div class="addr">인천 중구 영종대로 184</div>
-      </a>
-
+      </div>
     </section>
-  </main>
-</body>
-</html>
 
+    <!-- ===================== -->
+    <!-- 동인천 -->
+    <!-- ===================== -->
+    <section id="dongincheon" class="zone-section">
+      <h2 class="zone-title">동인천 <span>6 spots</span></h2>
+
+      <div class="spot-list">
+        <div class="spot-item">
+          <a class="spot-btn" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
+            EDITOR’S PICK 5. 토니커피하우스
+          </a>
+          <div class="spot-meta">
+            재즈·AOR 등 편안한 음악을 큐레이션하는 로스터리 카페. 훌륭한 드립커피를 좋은 음악과 함께 즐길 수 있다.
+          </div>
+          <div class="spot-addr">인천 중구 우현로90번길 19-8</div>
+        </div>
+
+        <div class="spot-item">
+          <a class="spot-btn" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
+            EDITOR’S PICK 6. 버텀라인
+          </a>
+          <div class="spot-meta">
+            주말마다 라이브 공연이 열리는 인천 최초의 재즈클럽. 100년이 넘은 근대 건축물답게 콘크리트 건물과는 또 다른 소리의 울림을 경험할 수 있다.
+          </div>
+          <div class="spot-addr">인천 중구 신포로23번길 22</div>
+        </div>
+
+        <div class="spot-item">
+          <a class="spot-btn" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
+            EDITOR’S PICK 7. 탄트라
+          </a>
+          <div class="spot-meta">
+            1979년 개업한 국내 최장수 LP바. 이국적인 붉은 차양으로 장식된 외관이 트레이드마크. 주로 감성적인 해외 명곡들을 선곡.
+          </div>
+          <div class="spot-addr">인천 중구 신포로27번길 23, 1층</div>
+        </div>
+
+        <div class="spot-item">
+          <a class="spot-btn" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
+            EDITOR’S PICK 8. 뮤직가이드
+          </a>
+          <div class="spot-meta">
+            루비살롱 1, 2층에서 함께 운영되는 레코드숍. 빈티지 LP부터 새 음반까지 큐레이션이 탄탄하고 관리가 깔끔하다. CD·카세트도 상당량 보유.
+          </div>
+          <div class="spot-addr">인천 중구 신포로35번길 17</div>
+        </div>
+
+        <div class="spot-item">
+          <a class="spot-btn" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
+            EDITOR’S PICK 9. 인천여관X루비살롱
+          </a>
+          <div class="spot-meta">
+            60년대 지어진 ‘인천여관’ 건물을 재생해 만든 라이브 공간. 공연·전시·DJ 나잇·감상회 등 프로그램이 열린다.
+          </div>
+          <div class="spot-addr">인천 중구 신포로35번길 17</div>
+        </div>
+
+        <div class="spot-item">
+          <a class="spot-btn" href="https://naver.me/5xatQrem" target="_blank" rel="noopener">
+            EDITOR’S PICK 10. 흐르는 물
+          </a>
+          <div class="spot-meta">
+            1989년 문을 연 라이브 클럽이자 LP카페. 주류 외에도 지리산 화개녹차, 남해 유자차, 체리차 등 차 메뉴가 있다. 주로 국내 포크·블루스를 선곡.
+          </div>
+          <div class="spot-addr">인천 중구 우현로39번길 17 (신포동)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 배다리 -->
+    <!-- ===================== -->
+    <section id="baedari" class="zone-section">
+      <h2 class="zone-title">배다리 <span>2 spots</span></h2>
+
+      <div class="spot-list">
+        <div class="spot-item">
+          <a class="spo
