@@ -10,17 +10,21 @@
       --max: 980px;
 
       /* base */
-      --ink: #000;              /* ✅ (1) h1 포함, 전체 핵심 텍스트: 검정 */
+      --ink: #000;              /* h1 포함, 전체 핵심 텍스트: 검정 */
       --body: #2b2b2b;
       --muted: rgba(0,0,0,.48);
 
-      --rule: rgba(0,0,0,.14);  /* ✅ 타이틀 아래 라인도 자연스럽게 중립 톤 */
+      --rule: rgba(0,0,0,.14);
 
-      /* ✅ (2) 섹션 타이틀 색상: 첨부한 두번째 이미지 컬러 */
+      /* section title color */
       --accent: #009ca1;
 
-      /* ✅ (3) 크레딧 라벨(인터뷰 진행, 정리/사진/장소) 밝은 회색 */
+      /* credits label */
       --credit-label: rgba(0,0,0,.32);
+
+      /* back link */
+      --backlink: rgba(0,0,0,.52);
+      --backlink-hover: rgba(0,0,0,.78);
 
       --sans: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
       --serif: ui-serif, "Noto Serif KR", "Nanum Myeongjo", "Batang", Georgia, serif;
@@ -41,23 +45,22 @@
       margin: 0 auto;
       padding: 44px 22px 110px;
     }
- .back-btn{
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border: 1px solid rgba(0,0,0,.14);
-      border-radius: 999px;
-      color: rgba(0,0,0,.78);
+
+    /* ✅ 홈으로 돌아가기 링크 (회색 + 간격) */
+    .back-link{
+      display: inline-block;
+      color: var(--backlink);
       text-decoration: none;
       font-size: 14px;
       letter-spacing: .01em;
-      margin-bottom: 30px;
-      background: #fff;
+
+      /* ✅ 링크와 큰 타이틀 사이 간격 */
+      margin: 0 0 22px;
     }
-    .back-btn:hover{
-      border-color: rgba(0,0,0,.28);
-      color: rgba(0,0,0,.92);
+    .back-link:hover{
+      color: var(--backlink-hover);
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
 
     h1{
@@ -152,9 +155,8 @@
       .wrap{ padding: 34px 18px 90px; }
       h1{ font-size: 34px; line-height: 1.22; }
       .section-title{ font-size: 18px; }
+      .back-link{ margin-bottom: 18px; }
     }
-  </style>
-</head>
   </style>
 </head>
 
@@ -170,8 +172,6 @@
 
     <!-- 인터뷰 본문 -->
     <section class="content">
-
-
       <p>
         인천음악창작소의 지원으로 첫 EP를 제작·발표하며 데뷔한 포크 듀오 산만한시선(서림, 송재원)은
         4개월 만에 한국대중음악상 ‘올해의 신인상’을 수상했다. 이어 정규앨범을 발표하고 첫 단독 콘서트
@@ -284,3 +284,4 @@
   </main>
 </body>
 </html>
+
