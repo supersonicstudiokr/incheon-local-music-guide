@@ -20,9 +20,6 @@
       --muted: rgba(0,0,0,.62);
       --link: #111;
       --rule: rgba(0,0,0,.12);
-
-      /* 사진 톤(청록 느낌) */
-      --tint: rgba(0, 150, 145, .22);
     }
 
     *{ box-sizing: border-box; }
@@ -42,6 +39,19 @@
       padding: 46px 22px 70px;
     }
 
+    /* ✅ 홈으로 돌아가기 */
+    .back-link{
+      display:inline-block;
+      margin: 0 0 18px;
+      font-size: 12px;
+      color: rgba(0,0,0,.7);
+      text-decoration: none;
+      border: 0;
+    }
+    .back-link:hover{
+      text-decoration: underline;
+    }
+
     .section{ margin-bottom: 30px; }
 
     /* 이미지처럼: 심플한 굵은 타이틀 */
@@ -57,32 +67,6 @@
     }
 
     p{ margin: 0 0 14px; }
-
-    /* 하단 사진 2장 */
-    .photo-row{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      margin-top: 26px;
-    }
-    .photo{
-      position: relative;
-      overflow: hidden;
-      background: #f3f3f3;
-    }
-    .photo img{
-      width: 100%;
-      height: auto;
-      display: block;
-      filter: grayscale(1) contrast(1.08) brightness(1.02);
-    }
-    .photo::after{
-      content:"";
-      position:absolute; inset:0;
-      background: var(--tint);
-      mix-blend-mode: multiply;
-      pointer-events:none;
-    }
 
     /* credits block */
     .credits{
@@ -107,16 +91,14 @@
     a:hover{
       border-bottom-color: rgba(0,0,0,.6);
     }
-
-    @media (max-width: 680px){
-      main{ padding: 38px 18px 60px; }
-      .photo-row{ grid-template-columns: 1fr; }
-    }
   </style>
 </head>
 
 <body>
   <main>
+    <!-- ✅ 홈으로 돌아가기 (index.html) -->
+    <a class="back-link" href="index.html">← 홈으로 돌아가기</a>
+
     <!-- 1) SUPERSONIC STUDIO 소개 -->
     <section class="section">
       <h1 class="section-title upper"><strong>SUPERSONIC STUDIO</strong></h1>
@@ -135,28 +117,19 @@
       <p>
         &lt;인천 로컬 뮤직 가이드&gt;는 슈퍼소닉 스튜디오와 인천의 음악인들이 함께 큐레이션한 ‘Editor’s Pick’ 형식의 음악 가이드 진(zine)입니다.
         인천 곳곳의 공연장, 레코드숍, 페스티벌, LP바, 식당·카페 등 음악과 연결된 장소들의 전체 리스트는 온라인 지도로 정리되어 있으며,
-        인터뷰 전문과 함께 진 안의 QR코드를 스캔해 확인하실 수 있습니다. 인터뷰에는 인천 지역을 오래 관찰·기록해온 음악평론가(
-        <a href="https://www.instagram.com/billlabounty_" target="_blank" rel="noopener">김학선</a>),
-        인천 음악창작소의 지원으로 음반을 제작한 뮤지션(
-        <a href="https://www.instagram.com/sanmanhan.official/" target="_blank" rel="noopener">산만한시선(서림, 송재원)</a>),
-        문화도시 사업 담당자(
-        <a href="https://www.instagram.com/bpcf_official/" target="_blank" rel="noopener">정지혜</a>)와의 깊이 있는 대화를 깊이 담았습니다.
+        인터뷰 전문과 함께 진 안의 QR코드를 스캔해 확인하실 수 있습니다.
+        인터뷰에는 인천 지역을 오래 관찰·기록해온 음악평론가
+        <a href="https://www.instagram.com/billlabounty_/" target="_blank" rel="noopener">김학선</a>,
+        인천 음악창작소의 지원으로 음반을 제작한 뮤지션
+        <a href="https://www.instagram.com/sanmanhan.official/" target="_blank" rel="noopener">산만한시선(서림, 송재원)</a>,
+        문화도시 사업 담당자
+        <a href="https://www.instagram.com/bpcf_official/" target="_blank" rel="noopener">정지혜</a>와의 깊이 있는 대화를 깊이 담았습니다.
       </p>
 
       <p>
         이 진은 슈퍼소닉 스튜디오가 인천의 음악 공간들을 직접 경험하고 만들었습니다. 이 진이 단순한 정보 제공을 넘어,
         인천 곳곳에서 다양한 방식으로 음악을 경험하고 즐기는 시간을 돕는 안내서가 되길 바랍니다.
       </p>
-
-      <!-- (선택) 하단 사진 2장: 파일명만 바꿔서 쓰면 됨 -->
-      <div class="photo-row">
-        <figure class="photo">
-          <img src="about-01.jpg" alt="About photo 01" loading="lazy" />
-        </figure>
-        <figure class="photo">
-          <img src="about-02.jpg" alt="About photo 02" loading="lazy" />
-        </figure>
-      </div>
 
       <!-- ✅ Credits (줄바꿈/구성 그대로) -->
       <div class="credits">
@@ -165,16 +138,15 @@
 <strong>인천 로컬 뮤직 가이드</strong>
 <strong>INCHEON LOCAL MUSIC GUIDE</strong>
 
-기획 | 슈퍼소닉 스튜디오 (<a href="https://instagram.com/supersonicstudiokr" target="_blank" rel="noopener">@supersonicstudiokr</a>)
+기획 | 슈퍼소닉 스튜디오
 글 | 맹주희, 김영진
-인터뷰 | <a href="https://www.instagram.com/billlabounty_" target="_blank" rel="noopener">김학선</a>, <a href="https://www.instagram.com/sanmanhan.official/" target="_blank" rel="noopener">산만한시선(서림, 송재원)</a>, <a href="https://www.instagram.com/bpcf_official/" target="_blank" rel="noopener">정지혜</a>
+인터뷰 | 김학선, 정지혜, 산만한시선(서림, 송재원)
 디자인 | 이경은
 출판 | 슈퍼소닉 스튜디오
 발행일 | 2025. 12.
 supersonicstudiokr@gmail.com | <a href="https://instagram.com/supersonicstudiokr" target="_blank" rel="noopener">@supersonicstudiokr</a> | <a href="https://instagram.com/indiesmoment" target="_blank" rel="noopener">@indiesmoment</a>
 © 2025 SUPERSONIC STUDIO. All rights reserved.
-부평구문화재단 2025 굿즈 제작 사업 〈씬앤굿즈〉의
-일환으로 제작되었습니다.
+'인천 로컬 뮤직 가이드'Zine은 부평구문화재단 2025 굿즈 제작 사업 〈씬앤굿즈〉의 일환으로 제작되었습니다.
       </div>
     </section>
   </main>
