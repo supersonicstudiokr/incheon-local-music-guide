@@ -3,221 +3,179 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Interview 03 · 산만한시선</title>
+  <title>About · SUPERSONIC STUDIO</title>
 
   <style>
     :root{
-      --max: 980px;
+      --max: 820px;
+      --ink: #111;
+      --bg: #fff;
 
-      /* LOCOMOTION-ish palette */
-      --ink: #1a1a1a;
-      --body: #2b2b2b;
-      --muted: rgba(0,0,0,.48);
+      --title-size: 16px;
+      --body-size: 14px;
 
-      --title: #8a5a2b;  /* warm brown */
-      --rule: rgba(138,90,43,.35);
+      --lh: 1.9;
 
-      --blue: #1f53c6;   /* section title */
-      --credit: #8c1d1d; /* credit red */
+      /* 링크/크레딧 톤 */
+      --muted: rgba(0,0,0,.62);
+      --link: #111;
+      --rule: rgba(0,0,0,.12);
 
-      --sans: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
-      --serif: ui-serif, "Noto Serif KR", "Nanum Myeongjo", "Batang", Georgia, serif;
+      /* 사진 톤(청록 느낌) */
+      --tint: rgba(0, 150, 145, .22);
     }
 
+    *{ box-sizing: border-box; }
     body{
       margin:0;
+      background: var(--bg);
       color: var(--ink);
-      background:#fff;
-      font-family: var(--sans);
-      line-height: 1.9;
+      font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      line-height: var(--lh);
       word-break: keep-all;
-      font-size: 18px;
+      font-size: var(--body-size);
     }
 
-    .wrap{
+    main{
       max-width: var(--max);
       margin: 0 auto;
-      padding: 44px 22px 110px;
+      padding: 46px 22px 70px;
     }
 
-    /* top nav */
-    .back-link{
-      display:inline-block;
-      color: rgba(0,0,0,.72);
-      text-decoration: none;
-      font-size: 14px;
-      letter-spacing: .01em;
-      margin-bottom: 18px;
-    }
-    .back-link:hover{ text-decoration: underline; }
+    .section{ margin-bottom: 30px; }
 
-    /* kicker + date */
-    .kicker{
-      margin: 0 0 10px;
-      font-size: 13px;
-      letter-spacing: .08em;
-      font-weight: 700;
-      color: rgba(0,0,0,.65);
-      text-transform: uppercase;
-    }
-
-    h1{
-      margin: 0 0 14px;
-      font-family: var(--serif);
-      font-weight: 700;
-      color: var(--title);
-      font-size: 44px;
-      line-height: 1.18;
-      letter-spacing: -0.03em;
-    }
-
-    .dateline{
-      margin: 0 0 24px;
-      font-size: 14px;
-      letter-spacing: .02em;
-      color: rgba(0,0,0,.42);
-      text-transform: uppercase;
-    }
-    .dateline .brand{ letter-spacing: .06em; }
-
-    hr{
-      border: 0;
-      border-top: 1px solid var(--rule);
-      margin: 0 0 40px;
-    }
-
-    /* section title like "INTERVIEW: 산만한 시선" */
+    /* 이미지처럼: 심플한 굵은 타이틀 */
     .section-title{
-      margin: 0 0 18px;
-      font-size: 22px;
+      margin: 0 0 14px;
       font-weight: 800;
+      font-size: var(--title-size);
       letter-spacing: .02em;
-      color: var(--blue);
+    }
+    .section-title.upper{
       text-transform: uppercase;
-    }
-    .section-title span{
-      text-transform: none; /* 한글은 그대로 */
-      font-weight: 800;
+      letter-spacing: .06em;
     }
 
-    /* intro typography */
-    .content{
-      color: var(--body);
+    p{ margin: 0 0 14px; }
+
+    /* 하단 사진 2장 */
+    .photo-row{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 26px;
     }
-    .content p{
-      margin: 0 0 16px;
+    .photo{
+      position: relative;
+      overflow: hidden;
+      background: #f3f3f3;
+    }
+    .photo img{
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: grayscale(1) contrast(1.08) brightness(1.02);
+    }
+    .photo::after{
+      content:"";
+      position:absolute; inset:0;
+      background: var(--tint);
+      mix-blend-mode: multiply;
+      pointer-events:none;
     }
 
-    /* credits (red label feel) */
+    /* credits block */
     .credits{
-      margin: 22px 0 34px;
-      font-size: 16px;
-      line-height: 1.8;
+      margin-top: 42px;
+      padding-top: 22px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.85;
+      white-space: pre-line; /* 줄바꿈 그대로 */
     }
-    .credits .label{
-      color: var(--credit);
+    .credits strong{
+      color: var(--ink);
       font-weight: 800;
-      margin-right: 10px;
-      letter-spacing: -.01em;
-    }
-    .credits .row{
-      margin: 0 0 6px;
     }
 
-    /* hero image: wide, clean, no rounded */
-    .interview-hero{
-      margin: 28px 0 46px;
+    a{
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,.25);
     }
-    .interview-hero img{
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius: 0;
-      border: 0;
+    a:hover{
+      border-bottom-color: rgba(0,0,0,.6);
     }
 
-    /* Q styling (magazine-like: bold question line, roomy spacing) */
-    .q{
-      margin-top: 34px;
-      margin-bottom: 12px;
-      font-size: 18px;
-      line-height: 1.7;
-      color: var(--ink);
-    }
-    .q strong{
-      font-weight: 900;
-      letter-spacing: -0.01em;
-    }
-
-    .speaker{
-      font-weight: 900;
-      color: var(--ink);
-      margin-right: 8px;
-    }
-
-    /* responsive */
-    @media (max-width: 640px){
-      body{ font-size: 17px; }
-      .wrap{ padding: 34px 18px 90px; }
-      h1{ font-size: 34px; line-height: 1.22; }
-      .section-title{ font-size: 18px; }
-      .dateline{ font-size: 13px; }
+    @media (max-width: 680px){
+      main{ padding: 38px 18px 60px; }
+      .photo-row{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
-    <!-- ✅ 홈으로 돌아가기 -->
-    <a class="back-link" href="index.html">← 홈으로 돌아가기</a>
+  <main>
+    <!-- 1) SUPERSONIC STUDIO 소개 -->
+    <section class="section">
+      <h1 class="section-title upper"><strong>SUPERSONIC STUDIO</strong></h1>
+      <p>
+        슈퍼소닉 스튜디오(<a href="https://instagram.com/supersonicstudiokr" target="_blank" rel="noopener">@supersonicstudiokr</a>)는
+        인디 음악과 진(zine)을 중심으로 활동하는 인디 문화 기록 그룹입니다.
+        진메이킹, 공연, 인터뷰, 독립출판, 커뮤니티 모임을 통해 로컬과 아시아 곳곳의 장면을 연결하고,
+        직접 경험한 문화와 이야기를 콘텐츠로 만들어 소개합니다.
+      </p>
+    </section>
 
-    <!-- ✅ LOCOMOTION 기사 상단 느낌 -->
-    <p class="kicker">FEATURES+ARTICLES / ISSUE NO.11</p>
-
-    <h1>Interview 03 · 산만한시선</h1>
-    <p class="dateline"><span class="brand">LOCOMOTION</span> &nbsp;|&nbsp; 2025. 1. 2. 10:52</p>
-
-    <hr />
-
-    <h2 class="section-title">INTERVIEW: <span>산만한시선</span></h2>
-
-    <!-- ✅ 인터뷰 본문 -->
-    <section class="content">
-      <p><strong>산만한시선, 이야기꾼이 되고 싶은 포크 듀오</strong></p>
-
-      <p><strong>INTERVIEW: 포크 듀오 산만한시선</strong></p>
+    <!-- 2) Incheon Local Music Guide 소개 -->
+    <section class="section">
+      <h2 class="section-title"><strong>Incheon Local Music Guide</strong></h2>
 
       <p>
-        인천음악창작소의 지원으로 첫 EP를 제작·발표하며 데뷔한 포크 듀오 산만한시선(서림, 송재원)은
-        4개월 만에 한국대중음악상 ‘올해의 신인상’을 수상했다. 이어 정규앨범을 발표하고 첫 단독 콘서트
-        &lt;生活의 發見: 생활의 발견&gt;을 개최하기까지 1년여간 쉼 없이 활동을 이어온 두 사람을 만나,
-        스스로 세운 기준과 앞으로의 방향을 물었다.
+        &lt;인천 로컬 뮤직 가이드&gt;는 슈퍼소닉 스튜디오와 인천의 음악인들이 함께 큐레이션한 ‘Editor’s Pick’ 형식의 음악 가이드 진(zine)입니다.
+        인천 곳곳의 공연장, 레코드숍, 페스티벌, LP바, 식당·카페 등 음악과 연결된 장소들의 전체 리스트는 온라인 지도로 정리되어 있으며,
+        인터뷰 전문과 함께 진 안의 QR코드를 스캔해 확인하실 수 있습니다. 인터뷰에는 인천 지역을 오래 관찰·기록해온 음악평론가(
+        <a href="https://www.instagram.com/billlabounty_" target="_blank" rel="noopener">김학선</a>),
+        인천 음악창작소의 지원으로 음반을 제작한 뮤지션(
+        <a href="https://www.instagram.com/sanmanhan.official/" target="_blank" rel="noopener">산만한시선(서림, 송재원)</a>),
+        문화도시 사업 담당자(
+        <a href="https://www.instagram.com/bpcf_official/" target="_blank" rel="noopener">정지혜</a>)와의 깊이 있는 대화를 깊이 담았습니다.
       </p>
 
-      <!-- ✅ 캡쳐샷처럼: 크레딧은 이미지 위에, 라벨은 붉게 -->
-      <div class="credits">
-        <div class="row"><span class="label">인터뷰 진행, 정리</span>맹주희(슈퍼소닉 스튜디오)</div>
-        <div class="row"><span class="label">사진</span>김영진(슈퍼소닉 스튜디오)</div>
-        <div class="row"><span class="label">장소</span>언플러그드</div>
+      <p>
+        이 진은 슈퍼소닉 스튜디오가 인천의 음악 공간들을 직접 경험하고 만들었습니다. 이 진이 단순한 정보 제공을 넘어,
+        인천 곳곳에서 다양한 방식으로 음악을 경험하고 즐기는 시간을 돕는 안내서가 되길 바랍니다.
+      </p>
+
+      <!-- (선택) 하단 사진 2장: 파일명만 바꿔서 쓰면 됨 -->
+      <div class="photo-row">
+        <figure class="photo">
+          <img src="about-01.jpg" alt="About photo 01" loading="lazy" />
+        </figure>
+        <figure class="photo">
+          <img src="about-02.jpg" alt="About photo 02" loading="lazy" />
+        </figure>
       </div>
 
-      <!-- ✅ 상단 사진 (캡쳐샷처럼 크게) -->
-      <figure class="interview-hero">
-        <img src="thumb-02.jpg.JPG" alt="Interview 03 · 산만한시선 - 사진" loading="lazy" />
-      </figure>
+      <!-- ✅ Credits (줄바꿈/구성 그대로) -->
+      <div class="credits">
+<strong>Credits.</strong>
 
-      <p class="q"><strong>- 최근 첫 단독 콘서트 &lt;生活의 發見: 생활의 발견&gt;을 진행하셨습니다. 축하드려요. 소감이 궁금해요.</strong></p>
-      <p><span class="speaker">재원</span>감사합니다. 이번 공연은 아무래도 저희가 공연장 대관 신청부터 시작해서 전부 직접 만든 공연이다 보니 “우리가 설계한 대로 끝까지 잘 마무리됐으면 좋겠다”라는 생각이 있었어요.</p>
+<strong>인천 로컬 뮤직 가이드</strong>
+<strong>INCHEON LOCAL MUSIC GUIDE</strong>
 
-      <p class="q"><strong>- 완전히 기획자 마인드인데요?</strong></p>
-      <p><span class="speaker">서림</span>맞아요. 오히려 공연 자체는 많이 떨리지 않았어요. 저희 두 사람이 편하게 할 수 있는 셋으로 구성을 하기도 했고요. 저희는 공연 중간에 만담을 해야 하는데 떨면 안 되니까요.</p>
-      <p><span class="speaker">재원</span>그리고 그 전까지 ‘나는 가수다’라는 생각을 잘 안 했어요. 근데 단독 공연을 하고 나니까, 이상하게 “나 이제 가수가 돼버렸다” 같은 느낌이 오더라고요.</p>
-
-      <p class="q"><strong>- 공연 이후로는 요즘 뭐 하면서 지내셨어요?</strong></p>
-      <p><span class="speaker">재원</span>복싱을 하고 있어요. 서림이가 같이 해보자고 복싱 세트를 선물해 줘서 시작했어요. 저는 이제 6일 차고요. 서림이는 두달 정도 됐어요.</p>
-      <p><span class="speaker">서림</span>작은 대회라도 나가서 둘이 체급도 다르고 하니까 메달 하나씩 따보자는 생각으로 하고 있어요. 무엇보다 “사람 주먹이 이렇게 위험한 거구나”를 몸으로 배우는 중이고요. 재원이는 언젠가 우리가 블루스 앨범을 내게 되면 그때 콘셉트를 복싱으로 하면 좋겠다는 얘기를 재원이가 하더라고요. 그러려면 안 배우고 거짓으로 하는 건 저희 성격에 용납이 안 되니까 열심히 배우고 있습니다.</p>
-
-      <!-- 이하 Q&A 그대로 계속… -->
+기획 | 슈퍼소닉 스튜디오 (<a href="https://instagram.com/supersonicstudiokr" target="_blank" rel="noopener">@supersonicstudiokr</a>)
+글 | 맹주희, 김영진
+인터뷰 | <a href="https://www.instagram.com/billlabounty_" target="_blank" rel="noopener">김학선</a>, <a href="https://www.instagram.com/sanmanhan.official/" target="_blank" rel="noopener">산만한시선(서림, 송재원)</a>, <a href="https://www.instagram.com/bpcf_official/" target="_blank" rel="noopener">정지혜</a>
+디자인 | 이경은
+출판 | 슈퍼소닉 스튜디오
+발행일 | 2025. 12.
+supersonicstudiokr@gmail.com | <a href="https://instagram.com/supersonicstudiokr" target="_blank" rel="noopener">@supersonicstudiokr</a> | <a href="https://instagram.com/indiesmoment" target="_blank" rel="noopener">@indiesmoment</a>
+© 2025 SUPERSONIC STUDIO. All rights reserved.
+부평구문화재단 2025 굿즈 제작 사업 〈씬앤굿즈〉의
+일환으로 제작되었습니다.
+      </div>
     </section>
   </main>
 </body>
