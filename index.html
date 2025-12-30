@@ -8,181 +8,203 @@
   <style>
     :root{
       --max: 980px;
-      --ink:#111;
+      --ink: #111;
       --muted: rgba(0,0,0,.62);
       --line: rgba(0,0,0,.14);
-      --card: rgba(0,0,0,.03);
-      --radius: 14px;
-      --shadow: 0 2px 18px rgba(0,0,0,.05);
+      --card: #fff;
+      --radius: 16px;
+      --shadow: 0 12px 30px rgba(0,0,0,.08);
       --sans: system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
     }
 
     *{ box-sizing:border-box; }
     body{
       margin:0;
-      font-family: var(--sans);
-      color:var(--ink);
       background:#fff;
-      line-height:1.6;
+      color:var(--ink);
+      font-family: var(--sans);
+      line-height: 1.75;
       word-break: keep-all;
     }
+
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration: underline; }
 
     .wrap{
       max-width: var(--max);
       margin: 0 auto;
-      padding: 22px 22px 70px;
+      padding: 26px 22px 90px;
     }
 
     /* header */
     header{
       display:flex;
-      align-items:flex-start;
       justify-content:space-between;
+      align-items:flex-start;
       gap: 18px;
-      padding: 10px 0 18px;
+      margin-bottom: 18px;
     }
     .brand{
+      font-weight: 900;
       font-size: 13px;
-      font-weight: 700;
       letter-spacing: .01em;
     }
-    .brand a{
-      color: inherit;
-      text-decoration:none;
+    .brand small{
+      display:block;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0;
+      margin-top: 2px;
+      font-size: 11px;
     }
     nav{
       display:flex;
       gap: 18px;
-      flex-wrap: wrap;
+      flex-wrap:wrap;
       justify-content:flex-end;
       font-size: 12px;
       color: var(--muted);
+      margin-top: 2px;
     }
-    nav a{
-      color: inherit;
-      text-decoration:none;
-    }
-    nav a:hover{ text-decoration: underline; }
+    nav a{ color: inherit; }
 
-    /* hero intro */
-    .hero{
-      padding: 10px 0 22px;
+    /* hero */
+    h1{
+      font-size: 38px;
+      line-height: 1.15;
+      margin: 22px 0 8px;
+      letter-spacing: -0.02em;
     }
-    .hero h1{
-      margin: 0 0 6px;
-      font-size: 28px;
-      letter-spacing: -.02em;
-    }
-    .hero p{
-      margin: 0;
+    .lead{
+      margin: 0 0 26px;
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-      max-width: 72ch;
+      font-size: 14px;
+      max-width: 90ch;
     }
 
-    /* section */
-    section{
+    /* section headings */
+    .section{
       margin-top: 26px;
     }
-    /* ✅ 작은 회색 타이틀(eyebrow/kicker/label) 안 쓰는 구조로 작성 */
-    .section-title{
-      margin: 0 0 10px;
-      font-size: 34px;
-      letter-spacing: -.02em;
+    .section h2{
+      font-size: 32px;
+      margin: 0 0 6px;
+      letter-spacing: -0.02em;
     }
-    .section-title .dot{ font-weight: 900; }
-    .section-desc{
+    .section .desc{
       margin: 0 0 14px;
-      font-size: 13px;
       color: var(--muted);
-      line-height: 1.7;
-      max-width: 80ch;
+      font-size: 14px;
     }
 
-    /* cards */
-    .card{
-      display:block;
+    /* banner card (Map / Editor’s Picks) */
+    .banner{
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: #fff;
-      box-shadow: var(--shadow);
       overflow:hidden;
-      text-decoration:none;
-      color: inherit;
+      background: var(--card);
+      box-shadow: var(--shadow);
     }
-    .card:hover{
-      transform: translateY(-1px);
+    .banner .media{
+      /* 배너 높이 통일 */
+      height: 230px;
+      width: 100%;
+      overflow:hidden;
+      background: rgba(0,0,0,.03);
+    }
+    .banner .media img{
+      width: 100%;
+      height: 100%;
+      display:block;
+      object-fit: cover;
+      object-position: center;
+    }
+    .banner .meta{
+      padding: 12px 14px;
+      border-top: 1px solid var(--line);
+    }
+    .banner .meta .primary{
+      font-size: 12px;
+      font-weight: 800;
+      margin: 0 0 2px;
+    }
+    .banner .meta .secondary{
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0;
+    }
+    .arrow{
+      font-size: 12px;
+      margin-left: 4px;
+      color: var(--muted);
     }
 
-    .card-media{
-      background: var(--card);
+    /* interviews grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      align-items: stretch;
     }
-    .card-media img{
-      width: 100%;
-      height: auto;
+
+    .card{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      display:flex;
+      flex-direction:column;
+      min-height: 100%;
+    }
+
+    /* ✅ 핵심: 세로/가로 사진 상관없이 “같은 비율”로 맞추기 */
+    .thumb{
+      width:100%;
+      aspect-ratio: 4 / 3;   /* 배너 비율 통일 */
+      overflow:hidden;
+      background: rgba(0,0,0,.03);
+    }
+    .thumb img{
+      width:100%;
+      height:100%;
       display:block;
+      object-fit: cover;     /* 세로 사진도 크롭해서 꽉 채움 */
+      object-position: center;
     }
 
     .card-body{
-      padding: 10px 12px 12px;
+      padding: 12px 14px 14px;
+      flex: 1;
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
     }
-
-    /* ✅ Interviews 카드 텍스트 (큰 bold + 작은 라인) */
     .card-title{
-      margin: 0 0 4px;
+      margin: 0;
+      font-size: 14px;
       font-weight: 900;
-      font-size: 13.5px;
-      letter-spacing: -.01em;
-      line-height: 1.35;
+      letter-spacing: -0.01em;
     }
     .card-sub{
       margin: 0;
       font-size: 12px;
       color: var(--muted);
-      letter-spacing: .02em;
-      line-height: 1.35;
+      text-transform:none;
+      letter-spacing: .01em;
     }
 
-    /* Map wide card */
-    .map-card .card-body{
-      padding: 10px 12px 12px;
-    }
-    .map-links{
-      margin-top: 8px;
-      font-size: 12px;
-      color: var(--muted);
-      display:flex;
-      flex-direction:column;
-      gap: 2px;
-    }
-    .map-links a{
-      color: var(--ink);
-      text-decoration:none;
-    }
-    .map-links a:hover{ text-decoration: underline; }
-
-    /* grids */
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    /* footer */
-    footer{
-      margin-top: 30px;
-      padding-top: 14px;
+    .hr{
+      margin: 26px 0 0;
+      border:0;
       border-top: 1px solid var(--line);
-      font-size: 11px;
-      color: var(--muted);
     }
 
-    /* responsive */
-    @media (max-width: 840px){
-      .section-title{ font-size: 30px; }
-      .grid-3{ grid-template-columns: 1fr; }
-      nav{ justify-content:flex-start; }
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+      .banner .media{ height: 210px; }
+      h1{ font-size: 34px; }
+      .section h2{ font-size: 28px; }
     }
   </style>
 </head>
@@ -191,121 +213,99 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <!-- 홈 로고/텍스트 -->
-        <a href="index.html">Incheon Local Music Guide</a>
+        Incheon Local Music Guide
+        <small>SUPERSONIC STUDIO</small>
       </div>
-
       <nav>
         <a href="about.html">About</a>
-        <a href="map.html">Map</a>
-        <a href="interviews.html">Interviews</a>
-        <a href="editors-picks.html">Editor's Picks</a>
+        <a href="#map">Map</a>
+        <a href="#interviews">Interviews</a>
+        <a href="#editors">Editor’s Picks</a>
       </nav>
     </header>
 
-    <section class="hero">
-      <h1>Incheon Local Music Guide.</h1>
-      <p>
-        인천의 로컬 음악 씬을 슈퍼소닉 스튜디오가 기록한 음악 가이드입니다.
-        지도에서 인천의 음악 장소들을 확인하고, 그리고 SUPERSONIC STUDIO의 Editor’s Picks를 만나볼 수 있어요.
-      </p>
-    </section>
+    <h1>Incheon Local Music Guide.</h1>
+    <p class="lead">
+      인천에서 음악을 즐길 수 있는 주요 장소들과, 그곳에서 만들어지는 음악/이야기를 담았습니다.
+      아래에서 지도와 인터뷰, 그리고 SUPERSONIC STUDIO의 Editor’s Picks를 확인할 수 있어요.
+    </p>
 
     <!-- MAP -->
-    <section>
-      <!-- ✅ 작은 회색 타이틀(MAP) 없음 -->
-      <h2 class="section-title">Map<span class="dot">.</span></h2>
-      <p class="section-desc">
-        전체 인천 로컬 뮤직 스팟(40+) + 큐레이션 지도 정보까지 QR로 연결됩니다.
-      </p>
+    <section id="map" class="section">
+      <h2>Map.</h2>
+      <p class="desc">전체 인천 로컬 뮤직 스팟(40+) + 큐레이션 지도 정보까지 QR로 연결됩니다.</p>
 
-      <a class="card map-card" href="map.html">
-        <div class="card-media">
-          <!-- TODO: 지금 쓰는 지도 썸네일 파일명으로 교체 -->
-          <img src="map-thumb.jpg" alt="Incheon map thumbnail" loading="lazy" />
+      <a class="banner" href="https://naver.me/GGC6wuYB" target="_blank" rel="noopener">
+        <div class="media">
+          <img src="map-banner.png" alt="Incheon map banner" loading="lazy" />
         </div>
-        <div class="card-body">
-          <div class="map-links">
-            <!-- TODO: 네이버 지도 링크/문구는 네가 쓰는 걸로 수정 -->
-            <a href="https://map.naver.com" target="_blank" rel="noopener">Open the full map on Naver ↗</a>
-            <div>40+ Incheon local music spots (saved list)</div>
-          </div>
+        <div class="meta">
+          <p class="primary">Open the full map on Naver <span class="arrow">↗</span></p>
+          <p class="secondary">40+ Incheon local music spots (saved list)</p>
         </div>
       </a>
     </section>
 
     <!-- INTERVIEWS -->
-    <section>
-      <!-- ✅ 작은 회색 타이틀(INTERVIEWS) 없음 -->
-      <h2 class="section-title">Interviews<span class="dot">.</span></h2>
-      <p class="section-desc">
-        Zine에는 축약본이 수록되며, 인터뷰 전문은 아래에서 확인하실 수 있어요.
-      </p>
+    <section id="interviews" class="section">
+      <h2>Interviews.</h2>
+      <p class="desc">Zine에는 축약본이 수록되며, 인터뷰 전문은 아래에서 확인하실 수 있어요.</p>
 
-      <div class="grid-3">
+      <div class="grid">
         <!-- 1) 김학선 -->
         <a class="card" href="interview-01.html">
-          <div class="card-media">
-            <!-- TODO: 기존 썸네일 파일명 유지/교체 -->
-            <img src="thumb-01.jpg.JPG" alt="Interview 01 thumbnail" loading="lazy" />
+          <div class="thumb">
+            <!-- ✅ 여기 src만 네 파일명으로 -->
+            <img src="thumb-01.jpg" alt="Interview 01 · 김학선" loading="lazy" />
           </div>
           <div class="card-body">
-            <div class="card-title">인천 로컬 음악 씬, 기록, 장소에 대한 이야기</div>
-            <div class="card-sub">Interview: 김학선</div>
+            <p class="card-title">인천 로컬 음악 씬, 기록, 장소에 대한 이야기</p>
+            <p class="card-sub">Interview: 김학선</p>
           </div>
         </a>
 
         <!-- 2) 정지혜 -->
         <a class="card" href="interview-02.html">
-          <div class="card-media">
-            <!-- TODO: 기존 썸네일 파일명 유지/교체 -->
-            <img src="thumb-03.jpg.JPG" alt="Interview 02 thumbnail" loading="lazy" />
+          <div class="thumb">
+            <img src="thumb-02.jpg" alt="Interview 02 · 정지혜" loading="lazy" />
           </div>
           <div class="card-body">
-            <div class="card-title">부평구문화재단 문화도시 사업 이야기</div>
-            <div class="card-sub">INTERVIEW: 정지혜</div>
+            <p class="card-title">부평구문화재단 문화도시 사업 이야기</p>
+            <p class="card-sub">INTERVIEW: 정지혜</p>
           </div>
         </a>
 
         <!-- 3) 산만한시선 -->
         <a class="card" href="interview-03.html">
-          <div class="card-media">
-            <!-- ✅ 너가 실제로 쓰고 있는 파일명 그대로 가져왔어 -->
-            <img src="thumb-02.jpg.JPG" alt="Interview 03 thumbnail" loading="lazy" />
+          <div class="thumb">
+            <img src="thumb-03.jpg" alt="Interview 03 · 산만한시선" loading="lazy" />
           </div>
           <div class="card-body">
-            <div class="card-title">산만한시선, 이야기꾼이 되고 싶은 포크 듀오</div>
-            <div class="card-sub">INTERVIEW: 산만한시선</div>
+            <p class="card-title">산만한시선, 이야기꾼이 되고 싶은 포크 듀오</p>
+            <p class="card-sub">INTERVIEW: 산만한시선</p>
           </div>
         </a>
       </div>
     </section>
 
     <!-- EDITOR'S PICKS -->
-    <section>
-      <!-- ✅ 작은 회색 타이틀(EDITOR'S PICKS) 없음 -->
-      <h2 class="section-title">Editor’s Picks<span class="dot">.</span></h2>
-      <p class="section-desc">
-        슈퍼소닉 스튜디오가 직접 큐레이션한 18개의 인천 음악 스팟에 대한 설명을 확인하세요.
-      </p>
+    <section id="editors" class="section">
+      <h2>Editor’s Picks.</h2>
+      <p class="desc">슈퍼소닉 스튜디오가 직접 큐레이션한 18개의 인천 음악 스팟에 대한 설명을 확인하세요.</p>
 
-      <a class="card" href="editors-picks.html">
-        <div class="card-media">
-          <!-- TODO: 이전에 너가 정해둔 배너 파일명 -->
-          <img src="editors-pick-banner.jpg" alt="Go to Editor’s Picks" loading="lazy" />
+      <a class="banner" href="https://github.com/supersonicstudiokr/incheon-local-music-guide/blob/main/editors-pick.html">
+        <div class="media">
+          <img src="editors-pick-banner.jpg" alt="Editor's Picks banner" loading="lazy" />
         </div>
-        <div class="card-body">
-          <div class="map-links">
-            <a href="editors-picks.html">Go to Editor’s Picks (18)</a>
-            <div>추천 이유 · 추천 장소 모아보기</div>
-          </div>
+        <div class="meta">
+          <p class="primary">Go to Editor’s Picks (18)</p>
+          <p class="secondary">추천 이유 · 추천 장소 모아보기</p>
         </div>
       </a>
     </section>
 
-    <footer>
-      © SUPERSONIC STUDIO
-    </footer>
+    <hr class="hr" />
+    <p style="margin-top:14px; font-size:11px; color:rgba(0,0,0,.55);">© SUPERSONIC STUDIO</p>
   </div>
 </body>
 </html>
