@@ -9,16 +9,18 @@
     :root{
       --max: 980px;
 
-      /* LOCOMOTION-ish palette */
-      --ink: #1a1a1a;
+      /* base */
+      --ink: #000;              /* ✅ (1) h1 포함, 전체 핵심 텍스트: 검정 */
       --body: #2b2b2b;
       --muted: rgba(0,0,0,.48);
 
-      --title: #8a5a2b;  /* warm brown */
-      --rule: rgba(138,90,43,.35);
+      --rule: rgba(0,0,0,.14);  /* ✅ 타이틀 아래 라인도 자연스럽게 중립 톤 */
 
-      --blue: #1f53c6;   /* section title */
-      --credit: #8c1d1d; /* credit red */
+      /* ✅ (2) 섹션 타이틀 색상: 첨부한 두번째 이미지 컬러 */
+      --accent: #009ca1;
+
+      /* ✅ (3) 크레딧 라벨(인터뷰 진행, 정리/사진/장소) 밝은 회색 */
+      --credit-label: rgba(0,0,0,.32);
 
       --sans: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
       --serif: ui-serif, "Noto Serif KR", "Nanum Myeongjo", "Batang", Georgia, serif;
@@ -39,6 +41,120 @@
       margin: 0 auto;
       padding: 44px 22px 110px;
     }
+ .back-btn{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border: 1px solid rgba(0,0,0,.14);
+      border-radius: 999px;
+      color: rgba(0,0,0,.78);
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: .01em;
+      margin-bottom: 18px;
+      background: #fff;
+    }
+    .back-btn:hover{
+      border-color: rgba(0,0,0,.28);
+      color: rgba(0,0,0,.92);
+    }
+
+    h1{
+      margin: 0 0 14px;
+      font-family: var(--serif);
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 44px;
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+    }
+
+    hr{
+      border: 0;
+      border-top: 1px solid var(--rule);
+      margin: 0 0 40px;
+    }
+
+    /* section title like "INTERVIEW: 산만한시선" */
+    .section-title{
+      margin: 0 0 18px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .section-title span{
+      text-transform: none;
+      font-weight: 800;
+    }
+
+    /* intro typography */
+    .content{
+      color: var(--body);
+    }
+    .content p{
+      margin: 0 0 16px;
+    }
+
+    /* credits */
+    .credits{
+      margin: 22px 0 34px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .credits .label{
+      color: var(--credit-label);
+      font-weight: 800;
+      margin-right: 10px;
+      letter-spacing: -.01em;
+    }
+    .credits .row{
+      margin: 0 0 6px;
+      color: var(--ink);
+    }
+
+    /* hero image */
+    .interview-hero{
+      margin: 28px 0 46px;
+    }
+    .interview-hero img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius: 0;
+      border: 0;
+    }
+
+    /* Q styling */
+    .q{
+      margin-top: 34px;
+      margin-bottom: 12px;
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--ink);
+    }
+    .q strong{
+      font-weight: 900;
+      letter-spacing: -0.01em;
+    }
+
+    .speaker{
+      font-weight: 900;
+      color: var(--ink);
+      margin-right: 8px;
+    }
+
+    /* responsive */
+    @media (max-width: 640px){
+      body{ font-size: 17px; }
+      .wrap{ padding: 34px 18px 90px; }
+      h1{ font-size: 34px; line-height: 1.22; }
+      .section-title{ font-size: 18px; }
+    }
+  </style>
+</head>
 
     /* top nav */
     .back-link{
@@ -51,34 +167,15 @@
     }
     .back-link:hover{ text-decoration: underline; }
 
-    /* kicker + date */
-    .kicker{
-      margin: 0 0 10px;
-      font-size: 13px;
-      letter-spacing: .08em;
-      font-weight: 700;
-      color: rgba(0,0,0,.65);
-      text-transform: uppercase;
-    }
-
     h1{
       margin: 0 0 14px;
       font-family: var(--serif);
       font-weight: 700;
-      color: var(--title);
+      color: var(--ink); /* ✅ (1) 타이틀 검정 */
       font-size: 44px;
       line-height: 1.18;
       letter-spacing: -0.03em;
     }
-
-    .dateline{
-      margin: 0 0 24px;
-      font-size: 14px;
-      letter-spacing: .02em;
-      color: rgba(0,0,0,.42);
-      text-transform: uppercase;
-    }
-    .dateline .brand{ letter-spacing: .06em; }
 
     hr{
       border: 0;
@@ -86,13 +183,13 @@
       margin: 0 0 40px;
     }
 
-    /* section title like "INTERVIEW: 산만한 시선" */
+    /* section title like "INTERVIEW: 산만한시선" */
     .section-title{
       margin: 0 0 18px;
       font-size: 22px;
       font-weight: 800;
       letter-spacing: .02em;
-      color: var(--blue);
+      color: var(--accent); /* ✅ (2) 섹션 타이틀 컬러 */
       text-transform: uppercase;
     }
     .section-title span{
@@ -108,20 +205,21 @@
       margin: 0 0 16px;
     }
 
-    /* credits (red label feel) */
+    /* credits */
     .credits{
       margin: 22px 0 34px;
       font-size: 16px;
       line-height: 1.8;
     }
     .credits .label{
-      color: var(--credit);
+      color: var(--credit-label); /* ✅ (3) 라벨만 밝은 회색 */
       font-weight: 800;
       margin-right: 10px;
       letter-spacing: -.01em;
     }
     .credits .row{
       margin: 0 0 6px;
+      color: var(--ink);
     }
 
     /* hero image: wide, clean, no rounded */
@@ -161,25 +259,23 @@
       .wrap{ padding: 34px 18px 90px; }
       h1{ font-size: 34px; line-height: 1.22; }
       .section-title{ font-size: 18px; }
-      .dateline{ font-size: 13px; }
     }
   </style>
 </head>
 
 <body>
   <main class="wrap">
-    <!-- ✅ 홈으로 돌아가기 -->
+    <!-- 홈으로 돌아가기 -->
     <a class="back-link" href="index.html">← 홈으로 돌아가기</a>
+
     <h1>Interview 03 · 산만한시선</h1>
-    
     <hr />
 
     <h2 class="section-title">INTERVIEW: <span>산만한시선</span></h2>
 
-    <!-- ✅ 인터뷰 본문 -->
+    <!-- 인터뷰 본문 -->
     <section class="content">
       <p><strong>산만한시선, 이야기꾼이 되고 싶은 포크 듀오</strong></p>
-
       <p><strong>INTERVIEW: 포크 듀오 산만한시선</strong></p>
 
       <p>
@@ -189,19 +285,19 @@
         스스로 세운 기준과 앞으로의 방향을 물었다.
       </p>
 
-      <!-- ✅ 캡쳐샷처럼: 크레딧은 이미지 위에, 라벨은 붉게 -->
+      <!-- 크레딧 -->
       <div class="credits">
         <div class="row"><span class="label">인터뷰 진행, 정리</span>맹주희(슈퍼소닉 스튜디오)</div>
         <div class="row"><span class="label">사진</span>김영진(슈퍼소닉 스튜디오)</div>
         <div class="row"><span class="label">장소</span>언플러그드</div>
       </div>
 
-      <!-- ✅ 상단 사진 (캡쳐샷처럼 크게) -->
+      <!-- 상단 사진 -->
       <figure class="interview-hero">
         <img src="thumb-02.jpg.JPG" alt="Interview 03 · 산만한시선 - 사진" loading="lazy" />
       </figure>
 
-      <!-- ✅✅✅ 업데이트된 본문 시작 -->
+      <!-- 본문 -->
       <p class="q"><strong>- 최근 첫 단독 콘서트 &lt;生活의 發見: 생활의 발견&gt;을 진행하셨습니다. 축하드려요. 소감이 궁금해요.</strong></p>
       <p><span class="speaker">재원</span>감사합니다. 이번 공연은 아무래도 저희가 공연장 대관 신청부터 시작해서 전부 직접 만든 공연이다 보니 “우리가 설계한 대로 끝까지 잘 마무리됐으면 좋겠다”라는 생각이 있었어요.</p>
 
@@ -290,8 +386,6 @@
       <p class="q"><strong>- 긴 시간 동안 인터뷰해주셔서 감사합니다.</strong></p>
       <p><span class="speaker">서림</span>너무 재밌었습니다.</p>
       <p><span class="speaker">재원</span>애정을 갖고 질문해주셔서 감사합니다.</p>
-      <!-- ✅✅✅ 업데이트된 본문 끝 -->
-
     </section>
   </main>
 </body>
