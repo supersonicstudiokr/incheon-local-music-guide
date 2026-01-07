@@ -20,6 +20,10 @@
       --muted: rgba(0,0,0,.62);
       --link: #111;
       --rule: rgba(0,0,0,.12);
+
+      /* 이미지 */
+      --img-radius: 14px;
+      --img-border: rgba(0,0,0,.10);
     }
 
     *{ box-sizing: border-box; }
@@ -48,13 +52,11 @@
       text-decoration: none;
       border: 0;
     }
-    .back-link:hover{
-      text-decoration: underline;
-    }
+    .back-link:hover{ text-decoration: underline; }
 
     .section{ margin-bottom: 30px; }
 
-    /* 이미지처럼: 심플한 굵은 타이틀 */
+    /* 심플한 굵은 타이틀 */
     .section-title{
       margin: 0 0 14px;
       font-weight: 800;
@@ -68,7 +70,19 @@
 
     p{ margin: 0 0 14px; }
 
-    /* credits block */
+    /* ✅ 섹션 상단 이미지 */
+    .section-hero{
+      margin: 0 0 14px;
+    }
+    .section-hero img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--img-radius);
+      border: 1px solid var(--img-border);
+    }
+
+    /* credits block (✅ 맨 아래로 이동) */
     .credits{
       margin-top: 42px;
       padding-top: 22px;
@@ -99,20 +113,13 @@
     <!-- ✅ 홈으로 돌아가기 (index.html) -->
     <a class="back-link" href="index.html">← 홈으로 돌아가기</a>
 
-    <!-- 1) SUPERSONIC STUDIO 소개 -->
-    <section class="section">
-      <h1 class="section-title upper"><strong>SUPERSONIC STUDIO</strong></h1>
-      <p>
-        슈퍼소닉 스튜디오(<a href="https://instagram.com/supersonicstudiokr" target="_blank" rel="noopener">@supersonicstudiokr</a>)는
-        인디 음악과 진(zine)을 중심으로 활동하는 인디 문화 기록 그룹입니다.
-        진메이킹, 공연, 인터뷰, 독립출판, 커뮤니티 모임을 통해 로컬과 아시아 곳곳의 장면을 연결하고,
-        직접 경험한 문화와 이야기를 콘텐츠로 만들어 소개합니다.
-      </p>
-    </section>
-
-    <!-- 2) Incheon Local Music Guide 소개 -->
+    <!-- ✅ 1) Incheon Local Music Guide (첫번째) -->
     <section class="section">
       <h2 class="section-title"><strong>Incheon Local Music Guide</strong></h2>
+
+      <figure class="section-hero">
+        <img src="zine_entire.png" alt="Incheon Local Music Guide 이미지" loading="lazy" />
+      </figure>
 
       <p>
         &lt;인천 로컬 뮤직 가이드&gt;는 슈퍼소닉 스튜디오와 인천의 음악인들이 함께 큐레이션한 ‘Editor’s Pick’ 형식의 음악 가이드 진(zine)입니다.
@@ -130,9 +137,26 @@
         이 진은 슈퍼소닉 스튜디오가 인천의 음악 공간들을 직접 경험하고 만들었습니다. 이 진이 단순한 정보 제공을 넘어,
         인천 곳곳에서 다양한 방식으로 음악을 경험하고 즐기는 시간을 돕는 안내서가 되길 바랍니다.
       </p>
+    </section>
 
-      <!-- ✅ Credits (줄바꿈/구성 그대로) -->
-      <div class="credits">
+    <!-- ✅ 2) SUPERSONIC STUDIO (두번째) -->
+    <section class="section">
+      <h1 class="section-title upper"><strong>SUPERSONIC STUDIO</strong></h1>
+
+      <figure class="section-hero">
+        <img src="supersonicstudio_profile.png" alt="SUPERSONIC STUDIO 프로필 이미지" loading="lazy" />
+      </figure>
+
+      <p>
+        슈퍼소닉 스튜디오(<a href="https://instagram.com/supersonicstudiokr" target="_blank" rel="noopener">@supersonicstudiokr</a>)는
+        인디 음악과 진(zine)을 중심으로 활동하는 인디 문화 기록 그룹입니다.
+        진메이킹, 공연, 인터뷰, 독립출판, 커뮤니티 모임을 통해 로컬과 아시아 곳곳의 장면을 연결하고,
+        직접 경험한 문화와 이야기를 콘텐츠로 만들어 소개합니다.
+      </p>
+    </section>
+
+    <!-- ✅ Credits (맨 아래) -->
+    <div class="credits">
 <strong>Credits.</strong>
 
 <strong>인천 로컬 뮤직 가이드</strong>
@@ -147,8 +171,7 @@
 supersonicstudiokr@gmail.com | <a href="https://instagram.com/supersonicstudiokr" target="_blank" rel="noopener">@supersonicstudiokr</a> | <a href="https://instagram.com/indiesmoment" target="_blank" rel="noopener">@indiesmoment</a>
 © 2025 SUPERSONIC STUDIO. All rights reserved.
 '인천 로컬 뮤직 가이드'Zine은 부평구문화재단 2025 굿즈 제작 사업 〈씬앤굿즈〉의 일환으로 제작되었습니다.
-      </div>
-    </section>
+    </div>
   </main>
 </body>
 </html>
