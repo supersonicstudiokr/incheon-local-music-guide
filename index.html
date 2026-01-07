@@ -14,6 +14,7 @@
       --card: #fff;
       --radius: 16px;
       --shadow: 0 12px 30px rgba(0,0,0,.08);
+      --accent: #009ca1;
       --sans: system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
     }
 
@@ -104,9 +105,15 @@
       overflow:hidden;
       background: var(--card);
       box-shadow: var(--shadow);
+      transition: transform .16s ease, box-shadow .16s easeease, border-color .16s ease;
+    }
+    .banner:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.10);
+      border-color: rgba(0,0,0,.22);
+      text-decoration:none;
     }
     .banner .media{
-      /* 배너 높이 통일 */
       height: 230px;
       width: 100%;
       overflow:hidden;
@@ -156,12 +163,19 @@
       display:flex;
       flex-direction:column;
       min-height: 100%;
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.10);
+      border-color: rgba(0,0,0,.22);
+      text-decoration:none;
     }
 
     /* ✅ 핵심: 세로/가로 사진 상관없이 “같은 비율”로 맞추기 */
     .thumb{
       width:100%;
-      aspect-ratio: 4 / 3;   /* 배너 비율 통일 */
+      aspect-ratio: 4 / 3;
       overflow:hidden;
       background: rgba(0,0,0,.03);
     }
@@ -169,7 +183,7 @@
       width:100%;
       height:100%;
       display:block;
-      object-fit: cover;     /* 세로 사진도 크롭해서 꽉 채움 */
+      object-fit: cover;
       object-position: center;
     }
 
@@ -186,12 +200,26 @@
       font-weight: 900;
       letter-spacing: -0.01em;
     }
+
+    /* ✅ 개선된 인터뷰이 표기: 라벨(작게) + 이름(크게) */
     .card-sub{
-      margin: 0;
-      font-size: 12px;
-      color: var(--muted);
-      text-transform:none;
-      letter-spacing: .01em;
+      margin: 2px 0 0;
+      display:flex;
+      gap: 8px;
+      align-items: baseline;
+      line-height: 1.4;
+    }
+    .card-sub .label{
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,.45);
+    }
+    .card-sub .name{
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--ink);
     }
 
     .hr{
@@ -255,12 +283,11 @@
         <!-- 1) 김학선 -->
         <a class="card" href="interview-1.html">
           <div class="thumb">
-            <!-- ✅ 여기 src만 네 파일명으로 -->
             <img src="thumb-01.jpg.JPG" alt="Interview 01 · 김학선" loading="lazy" />
           </div>
           <div class="card-body">
             <p class="card-title">인천에서 ‘좋은 음악’을 만날 수 있는 공간들: 배다리 헌책방부터 송도의 콘서트홀까지</p>
-            <p class="card-sub">Interview: 김학선</p>
+            <p class="card-sub"><span class="label">INTERVIEW</span><span class="name">김학선</span></p>
           </div>
         </a>
 
@@ -271,7 +298,7 @@
           </div>
           <div class="card-body">
             <p class="card-title">부평에서 ‘좋은 음악’이 지속되는 방식: 문화도시 5년, 음악 사업의 현장 기록</p>
-            <p class="card-sub">INTERVIEW: 정지혜</p>
+            <p class="card-sub"><span class="label">INTERVIEW</span><span class="name">정지혜</span></p>
           </div>
         </a>
 
@@ -282,7 +309,7 @@
           </div>
           <div class="card-body">
             <p class="card-title">산만한시선, 이야기꾼이 되고 싶은 포크 듀오</p>
-            <p class="card-sub">INTERVIEW: 산만한시선</p>
+            <p class="card-sub"><span class="label">INTERVIEW</span><span class="name">산만한시선</span></p>
           </div>
         </a>
       </div>
